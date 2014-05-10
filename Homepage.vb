@@ -35,7 +35,7 @@ Public Class Homepage
             Dim pwd As String = txtPassword.Text
             'Dim adapter As New EAPTableAdapters.soraldo_authorsTableAdapter
             'Dim users As EAP.soraldo_authorsDataTable = adapter.GetDataByUserPwd(user, pwd)
-            Dim authenticated As Boolean = ((UCase(user) = "PREFETTURA") And (pwd = "p001d1516")) OrElse ((UCase(user) = "EAP") And (pwd = "eap2013"))
+            Dim authenticated As Boolean = ((UCase(user) = "PREFETTURA") And (pwd = "p001d1516")) OrElse ((UCase(user) = "EAP") And (pwd = "eap2014"))
             ShowPanel(Not authenticated)
 
             Session.Item("user") = Nothing
