@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SIC.EAP Elezioni Online", "SIC.EAP Elezioni Online.vbproj", "{819A2543-5468-4974-BBB1-04F35A3B0D61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2EB3F11B-0946-47E5-B468-D8CB963E4F9A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Working|Any CPU = Working|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Working|Any CPU.ActiveCfg = Release|Any CPU
+		{819A2543-5468-4974-BBB1-04F35A3B0D61}.Working|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
