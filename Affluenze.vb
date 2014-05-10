@@ -1,4 +1,3 @@
-Imports WorkSpaceContent_Library
 Imports Gizmox.WebGUI.Forms
 
 Public Class Affluenze
@@ -26,7 +25,7 @@ Public Class Affluenze
             cboCollegio.Items.Add("Tutti i Collegi")
 
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
-            Dim collegi As DataRow() = GetCollegi(IDConsultazioneGenerale)
+            Dim collegi= GetCollegi(IDConsultazioneGenerale)
             For Each collegio As EAPVoti.soraldo_ele_collegiRow In collegi
                 Dim nomeCollegio As String = collegio.descrizione
                 cboCollegio.Items.Add(nomeCollegio)
@@ -59,9 +58,8 @@ Public Class Affluenze
 
             Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table As EAPOperatori2.soraldo_ele_consultazioneDataTable = adapter.GetData
-            For Each row As EAPOperatori2.soraldo_ele_consultazioneRow In table
-                Dim consultazione As String = row.descrizione
-                cboConsultazioni.Items.Add(consultazione)
+            For Each row In table
+                cboConsultazioni.Items.Add(row.descrizione)
             Next
 
         Catch ex As Exception
