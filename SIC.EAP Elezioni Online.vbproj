@@ -69,6 +69,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Tools Visual Studio.NET\Gizmox.Library.Framework4.5.1\Bin\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="ESD.Library, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalReferences\ESD.Library.dll</HintPath>
+    </Reference>
     <Reference Include="Gizmox.WebGUI.3rdParty.Assemblies, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Tools Visual Studio.NET\Gizmox.Library.Framework4.5.1\Bin\Gizmox.WebGUI.3rdParty.Assemblies.dll</HintPath>
@@ -260,6 +264,10 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Tools Visual Studio.NET\Gizmox.Library.Framework4.5.1\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OfficeUtility, Version=1.0.5243.18719, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalReferences\OfficeUtility.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
