@@ -57,7 +57,7 @@ Public Class MonitorSezioneRow
     Private Sub imgSezione_Click(sender As System.Object, e As System.EventArgs) Handles imgSezione.Click
         Try
             Dim statoSezione As New StatoSezione(NumeroSezione, consultazioni)
-            statoSezione.Show()
+            statoSezione.ShowDialog()
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
