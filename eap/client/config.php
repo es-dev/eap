@@ -15,10 +15,10 @@ if (eregi("config.php",$_SERVER['PHP_SELF'])) {
 
 
 /* Variabili di configurazione accesso db */
-$dbhost = "127.0.0.1";
-$dbuname = "root";
-$dbpass = "vIard1na19";
-$dbname = "eleonline";
+$dbhost = "62.149.150.212";
+$dbuname = "Sql755035";
+$dbpass = "4f8xakg38w";
+$dbname = "Sql755035_1";
 $prefix = "soraldo";
 $dbtype = "MySQL";
 
