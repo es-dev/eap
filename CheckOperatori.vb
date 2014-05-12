@@ -23,11 +23,11 @@ Public Class CheckOperatori
     Private Function GetIDConsultazione(ByVal descrizione As String) As Integer
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_cons_comuneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_cons_comuneTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim consultazioni As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString)
             If (consultazioni.Length >= 1) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_cons_comuneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_cons_comuneRow = consultazioni(0)
                 Dim IDConsultazione As Integer = consultazione.id_cons
                 Return IDConsultazione
 
@@ -43,11 +43,11 @@ Public Class CheckOperatori
 
     Private Function GetIDConsultazioneGenerale(ByVal descrizione As String) As Integer
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table As DataTable = adapter.GetDataByDescrizione(descrizione)
             Dim consultazioni As DataRow() = table.Select("descrizione='" + descrizione + "'")
             If (consultazioni.Length >= 0) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_consultazioneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_consultazioneRow = consultazioni(0)
                 Dim IDConsultazioneGenerale As Integer = consultazione.id_cons_gen
                 Return IDConsultazioneGenerale
             End If
@@ -106,16 +106,16 @@ Public Class CheckOperatori
 
     Private Sub LoadStatoSediOperatoriAsync()
         Try
-            Dim table As New EAPOperatori.CheckOperatoriDataTable
-            Dim adapter As New EAPTableAdapters.soraldo_authorsTableAdapter
-            Dim tableOperatori As EAP.soraldo_authorsDataTable = adapter.GetData()
+            Dim table As New EAPModel.CheckOperatoriDataTable
+            Dim adapter As New EAPModelTableAdapters.soraldo_authorsTableAdapter
+            Dim tableOperatori As EAPModel.soraldo_authorsDataTable = adapter.GetData()
             Dim countOK As Integer = 0
             Dim countNoOk As Integer = 0
             Dim count As Integer = 0
-            For Each rowOperatore As EAP.soraldo_authorsRow In tableOperatori
+            For Each rowOperatore As EAPModel.soraldo_authorsRow In tableOperatori
                 Dim aid As String = rowOperatore.aid
                 If (IsOperatoreEnabled(aid, IDConsultazione)) Then
-                    Dim row As EAPOperatori.CheckOperatoriRow = table.NewCheckOperatoriRow
+                    Dim row As EAPModel.CheckOperatoriRow = table.NewCheckOperatoriRow
                     row.Operatore = rowOperatore.name
 
                     Dim sede As String = GetSedeOperatore(aid, IDConsultazione)
@@ -154,7 +154,7 @@ Public Class CheckOperatori
     Private Function IsOperatoreEnabled(aid As String, IDConsultazione As Integer) As Boolean
         Try
             If (aid.ToUpper <> "ADMIN" And aid.ToUpper <> "SUSER") Then
-                Dim adapter As New EAPOperatoriTableAdapters.soraldo_ele_operatoriTableAdapter
+                Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
                 Dim table = adapter.GetDataByAidIDConsultazione(aid, IDConsultazione)
                 Dim enabled = table.Count >= 1
                 Return enabled
@@ -171,10 +171,10 @@ Public Class CheckOperatori
     Private Function GetSedeOperatore(ByVal aid As String, IDConsultazione As Integer) As String
         Try
             Dim IDSede As Integer = GetIDSede(aid, IDConsultazione)
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sedeTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sedeTableAdapter
             Dim table As DataTable = adapter.GetDataByIDSede(IDSede)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAP.soraldo_ele_sedeRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_sedeRow = table.Rows(0)
                 Dim indirizzo As String = row.indirizzo
                 Return indirizzo
             End If
@@ -188,10 +188,10 @@ Public Class CheckOperatori
 
     Private Function GetIDSede(ByVal aid As String, IDConsultazione As Integer) As Integer
         Try
-            Dim adapter As New EAPOperatoriTableAdapters.soraldo_ele_operatoriTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
             Dim table As DataTable = adapter.GetDataByAidIDConsultazione(aid, IDConsultazione)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAPOperatori.soraldo_ele_operatoriRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_operatoriRow = table.Rows(0)
                 Dim IDSede As Integer = row.id_sede
                 Return IDSede
             End If
@@ -205,9 +205,9 @@ Public Class CheckOperatori
 
     Private Sub cmdAzzeraFlag_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAzzeraFlag.Click
         Try
-            Dim adapter As New EAPOperatoriTableAdapters.soraldo_authorsTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_authorsTableAdapter
             Dim table As DataTable = adapter.GetData()
-            For Each row As EAPOperatori.soraldo_authorsRow In table.Rows
+            For Each row As EAPModel.soraldo_authorsRow In table.Rows
                 row.counter = 0
                 adapter.Update(row)
             Next

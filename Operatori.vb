@@ -24,9 +24,9 @@ Public Class Operatori
             cboConsultazioni.Items.Clear()
             cboConsultazioniDestinazione.Items.Clear()
 
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_consultazioneTableAdapter
-            Dim table As EAPOperatori2.soraldo_ele_consultazioneDataTable = adapter.GetData
-            For Each row As EAPOperatori2.soraldo_ele_consultazioneRow In table
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim table As EAPModel.soraldo_ele_consultazioneDataTable = adapter.GetData
+            For Each row As EAPModel.soraldo_ele_consultazioneRow In table
                 Dim consultazione As String = row.descrizione
                 cboConsultazioni.Items.Add(consultazione)
                 cboConsultazioniDestinazione.Items.Add(consultazione)
@@ -43,11 +43,11 @@ Public Class Operatori
     Private Function GetIDConsultazione(ByVal descrizione As String) As Integer
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_cons_comuneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_cons_comuneTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim consultazioni As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString)
             If (consultazioni.Length >= 1) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_cons_comuneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_cons_comuneRow = consultazioni(0)
                 Dim IDConsultazione As Integer = consultazione.id_cons
                 Return IDConsultazione
 
@@ -63,11 +63,11 @@ Public Class Operatori
 
     Private Function GetIDConsultazioneGenerale(ByVal descrizione As String) As Integer
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table As DataTable = adapter.GetDataByDescrizione(descrizione)
             Dim consultazioni As DataRow() = table.Select("descrizione='" + descrizione + "'")
             If (consultazioni.Length >= 0) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_consultazioneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_consultazioneRow = consultazioni(0)
                 Dim IDConsultazioneGenerale As Integer = consultazione.id_cons_gen
                 Return IDConsultazioneGenerale
             End If
@@ -108,9 +108,9 @@ Public Class Operatori
             Dim consultazione As String = cboConsultazioni.SelectedItem
             If (Not consultazione Is Nothing) Then
                 Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
-                Dim adapter As New EAPTableAdapters.soraldo_ele_operatoriTableAdapter
+                Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
                 Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
-                For Each row As EAP.soraldo_ele_operatoriRow In table.Rows
+                For Each row As EAPModel.soraldo_ele_operatoriRow In table.Rows
                     If (row.id_sede <> 0) Then
                         row.permessi = 16
                         adapter.Update(row)
@@ -131,9 +131,9 @@ Public Class Operatori
             Dim consultazione As String = cboConsultazioni.SelectedItem
             If (Not consultazione Is Nothing) Then
                 Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
-                Dim adapter As New EAPTableAdapters.soraldo_ele_operatoriTableAdapter
+                Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
                 Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
-                For Each row As EAP.soraldo_ele_operatoriRow In table.Rows
+                For Each row As EAPModel.soraldo_ele_operatoriRow In table.Rows
                     If (row.id_sede <> 0) Then
                         row.permessi = 0
                         adapter.Update(row)
@@ -187,10 +187,10 @@ Public Class Operatori
 
     Private Function CopiaPermessi(IDConsultazioneOrigine As Integer, IDConsultazioneDestinazione As Integer) As Boolean
         Try
-            Dim tableDestinazione As New EAPOperatori2.soraldo_ele_operatoriDataTable
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_operatoriTableAdapter
+            Dim tableDestinazione As New EAPModel.soraldo_ele_operatoriDataTable
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
             Dim tableOrigine = adapter.GetDataByIDConsultazione(IDConsultazioneOrigine)
-            For Each rowOrigine As EAPOperatori2.soraldo_ele_operatoriRow In tableOrigine
+            For Each rowOrigine As EAPModel.soraldo_ele_operatoriRow In tableOrigine
                 Dim rowDestinazione = tableDestinazione.Newsoraldo_ele_operatoriRow
                 rowDestinazione.aid = rowOrigine.aid
                 rowDestinazione.id_comune = rowOrigine.id_comune
@@ -235,7 +235,7 @@ Public Class Operatori
 
     Private Function GetSede(IDConsultazione As Integer, IDSede As Integer) As String
         Try
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_sedeTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sedeTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSede(IDConsultazione, IDSede)
             If (table.Count >= 1) Then
                 Dim row = table(0)
@@ -253,7 +253,7 @@ Public Class Operatori
 
     Private Function GetIDSede(IDConsultazione As Integer, sede As String) As Integer
         Try
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_sedeTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sedeTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneSede(IDConsultazione, sede)
             If (table.Count >= 1) Then
                 Dim row = table(0)
@@ -298,7 +298,7 @@ Public Class Operatori
 
     Private Function CopiaCorpoElettorale(IDConsultazioneOrigine As Integer, IDConsultazioneDestinazione As Integer) As Boolean
         Try
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableOrigine = adapter.GetDataByIDConsultazione(IDConsultazioneOrigine)
             For Each rowOrigine In tableOrigine
                 Dim numeroSezione = rowOrigine.num_sez

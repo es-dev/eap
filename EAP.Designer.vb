@@ -5026,11 +5026,19 @@ Namespace EAPTableAdapters
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@aid"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 25
             param.IsNullable = true
+            param.SourceColumn = "aid"
             Me._commandCollection(1).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@pwd"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 40
             param.IsNullable = true
+            param.SourceColumn = "pwd"
             Me._commandCollection(1).Parameters.Add(param)
         End Sub
         
@@ -5070,7 +5078,7 @@ Namespace EAPTableAdapters
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(__aid,String)
             End If
             If (__pwd Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("__pwd")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(__pwd,String)
             End If
@@ -5093,7 +5101,7 @@ Namespace EAPTableAdapters
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(__aid,String)
             End If
             If (__pwd Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("__pwd")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(__pwd,String)
             End If
@@ -5421,10 +5429,10 @@ Namespace EAPTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons`, `id_sede`, `id_comune`, `permessi`, `aid` FROM `eleonline`.`sor"& _ 
-                "aldo_ele_operatori` where id_cons=?id_cons"
+                "aldo_ele_operatori` where id_cons=@id_cons"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -5440,10 +5448,15 @@ Namespace EAPTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@aid"
+            param.DbType = Global.System.Data.DbType.[String]
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.VarChar
+            param.Size = 25
             param.IsNullable = true
+            param.SourceColumn = "aid"
             Me._commandCollection(2).Parameters.Add(param)
         End Sub
         
@@ -5475,9 +5488,9 @@ Namespace EAPTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazione(ByVal dataTable As EAP.soraldo_ele_operatoriDataTable, ByVal id_cons As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazione(ByVal dataTable As EAP.soraldo_ele_operatoriDataTable, ByVal __id_cons As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -5489,9 +5502,9 @@ Namespace EAPTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazione(ByVal id_cons As Integer) As EAP.soraldo_ele_operatoriDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazione(ByVal __id_cons As Integer) As EAP.soraldo_ele_operatoriDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
             Dim dataTable As EAP.soraldo_ele_operatoriDataTable = New EAP.soraldo_ele_operatoriDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -6981,12 +6994,14 @@ Namespace EAPTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_sede"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             Me._commandCollection(3) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
@@ -7000,6 +7015,7 @@ Namespace EAPTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_cons"
             Me._commandCollection(3).Parameters.Add(param)
         End Sub
         
@@ -7356,12 +7372,14 @@ Namespace EAPTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_lista"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_lista"
             Me._commandCollection(1).Parameters.Add(param)
         End Sub
         
@@ -7636,6 +7654,7 @@ Namespace EAPTableAdapters
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
+            param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
         End Sub
         
