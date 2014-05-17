@@ -432,7 +432,7 @@ Public Class Scrutinio
                 End If
 
                 'Controllo A<>C-B, A=VotiTotaliListe
-                Dim A = GetVotiGruppoTotale(IDConsultazione, IDSezione)
+                Dim A = GetVotiListeTotale(IDConsultazione, IDSezione)
                 If (A <> C) Then
                     stato += " | ERRORE: Totale Voti Liste non coincide con Voti Validi"
                 End If
@@ -1633,8 +1633,8 @@ Public Class Scrutinio
             Dim dataUltimaRilevazione As Date = GetDataUltimaRilevazione(IDConsultazione, consultazione)
             Dim totale As Integer = 0
             For Each voto As EAPModel.soraldo_ele_voti_parzialeRow In voti
-                Dim data As DateTime = voto.data
-                If (dataUltimaRilevazione = data) Then
+                Dim dataVoto As DateTime = New DateTime(voto.data.Year, voto.data.Month, voto.data.Day, voto.orario.Hours, voto.orario.Minutes, voto.orario.Seconds)
+                If (dataUltimaRilevazione = dataVoto) Then
                     totale += voto.voti_uomini
                 End If
 
@@ -1649,14 +1649,14 @@ Public Class Scrutinio
 
     End Function
 
-    Private Function GetDataUltimaRilevazione(ByVal IDConsultazione As Integer, ByVal consultazione As String) As Date
+    Private Function GetDataUltimaRilevazione(ByVal IDConsultazione As Integer, ByVal consultazione As String) As DateTime
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(consultazione)
             Dim adapter As New EAPModelTableAdapters.soraldo_ele_rilaffTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             If (table.Rows.Count >= 1) Then
                 Dim row As EAPModel.soraldo_ele_rilaffRow = table.Rows(0)
-                Dim dataUltimaRilevazione As Date = row.data
+                Dim dataUltimaRilevazione As Date = New Date(row.data.Year, row.data.Month, row.data.Day, row.orario.Hours, row.orario.Minutes, row.orario.Seconds)
                 Return dataUltimaRilevazione
 
             End If
@@ -1692,8 +1692,8 @@ Public Class Scrutinio
             Dim dataUltimaRilevazione As Date = GetDataUltimaRilevazione(IDConsultazione, consultazione)
             Dim totale As Integer = 0
             For Each voto As EAPModel.soraldo_ele_voti_parzialeRow In voti
-                Dim data As DateTime = voto.data
-                If (dataUltimaRilevazione = data) Then
+                Dim dataVoto As DateTime = New DateTime(voto.data.Year, voto.data.Month, voto.data.Day, voto.orario.Hours, voto.orario.Minutes, voto.orario.Seconds)
+                If (dataUltimaRilevazione = dataVoto) Then
                     totale += voto.voti_donne
                 End If
 

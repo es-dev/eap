@@ -18391,25 +18391,25 @@ Namespace EAPModelTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.InsertCommand = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `eleonline`.`soraldo_ele_rilaff` (`id_cons_gen`, `orario`, `data`) VA" & _
-                "LUES (@id_cons_gen, @orario, @data)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `soraldo_ele_rilaff` (`id_cons_gen`, `orario`, `data`) VALUES (@p1, @" & _
+                "p2, @p3)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_cons_gen"
+            param.ParameterName = "@p1"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_cons_gen"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@orario"
+            param.ParameterName = "@p2"
             param.DbType = Global.System.Data.DbType.Time
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Time
             param.IsNullable = True
             param.SourceColumn = "orario"
             Me._adapter.InsertCommand.Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@data"
+            param.ParameterName = "@p3"
             param.DbType = Global.System.Data.DbType.[Date]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.[Date]
             param.IsNullable = True
@@ -18434,8 +18434,8 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT `id_cons_gen`, `orario`, `data` FROM `eleonline`.`soraldo_ele_rilaff` wher" & _
-                "e id_cons_gen=@id_cons_gen order by data desc"
+            Me._commandCollection(1).CommandText = "SELECT data, id_cons_gen, orario FROM soraldo_ele_rilaff WHERE (id_cons_gen = @id" & _
+                "_cons_gen) ORDER BY data DESC"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons_gen"
@@ -18528,10 +18528,10 @@ Namespace EAPModelTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
-        Public Overridable Overloads Function Insert(ByVal id_cons_gen As Integer, ByVal orario As Date, ByVal data As Date) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_cons_gen, Integer)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(orario, Date)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(data, Date)
+        Public Overridable Overloads Function Insert(ByVal p1 As Integer, ByVal p2 As Date, ByVal p3 As Date) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1, Integer)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(p2, Date)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(p3, Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
