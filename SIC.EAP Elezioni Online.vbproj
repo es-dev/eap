@@ -1537,11 +1537,15 @@
     <None Include="Resources\Templates\9-SCRUTINIO ULTIMO.xls" />
     <None Include="Resources\Templates\ALLEGATO-N8-ComuneCosenza%28Ufficiale%29.xls" />
     <None Include="Resources\Templates\Ballottaggio_2011.doc" />
+    <Content Include="Resources\Templates\Camera2013.xls" />
     <None Include="Resources\Templates\COMUNICAZIONI_PREFERENZE_2011.doc" />
     <None Include="Resources\Templates\Cosenza.xls" />
     <Content Include="Resources\Templates\Cosenza_Affluenze.xls" />
     <None Include="Resources\Templates\Referendum_2011.doc" />
     <None Include="Resources\Templates\Referendum_2011_Affluenza.doc" />
+    <Content Include="Resources\Templates\Senato2013.xls" />
+    <Content Include="Resources\Templates\Scrutini_Liste_Europee_F2003_2014.xls" />
+    <Content Include="Resources\Templates\Scrutini_Preferenze_Europee_F2003_2014.xls" />
     <None Include="Resources\Tools\SyncMySQL.cmd" />
     <None Include="Web.config" />
   </ItemGroup>
@@ -2054,6 +2058,278 @@
       <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
       <Visible>false</Visible>
     </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="ESD.Library">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\ESD.Library.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
     <CustomReference Include="Gizmox.WebGUI.Forms">
       <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
       <Visible>false</Visible>
@@ -2724,6 +3000,142 @@
     </CustomReference>
     <CustomReference Include="Gizmox.WebGUI.Forms">
       <HintPath>C:\Program Files\Gizmox\Visual WebGUI\Sources 3.5\Gizmox.WebGUI.References\bin\3.5\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.dll</HintPath>
       <Visible>false</Visible>
     </CustomReference>
     <CustomReference Include="Gizmox.WebGUI.Forms">
@@ -4944,6 +5356,1230 @@
     </CustomReference>
     <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
       <HintPath>C:\Program Files\Gizmox\Visual WebGUI\Sources 3.5\Gizmox.WebGUI.References\bin\3.5\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
+      <Visible>false</Visible>
+    </CustomReference>
+    <CustomReference Include="Gizmox.WebGUI.Forms.Themes">
+      <HintPath>C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\bin\Gizmox.WebGUI.Forms.Themes.dll</HintPath>
       <Visible>false</Visible>
     </CustomReference>
     <CustomReference Include="Gizmox.WebGUI.Forms.Themes">

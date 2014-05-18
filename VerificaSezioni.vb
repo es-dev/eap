@@ -20,8 +20,7 @@ Public Class VerificaSezioni
     Private Sub InitConsultazioni()
         Try
             Dim IDs As New List(Of Integer)
-            IDs.Add(10)
-            IDs.Add(13)
+            IDs.Add(16)
             Dim scrutinioSezioni As New Scrutinio
             For Each IDConsultazioneGenerale In IDs
                 Dim consultazione = scrutinioSezioni.GetConsultazione(IDConsultazioneGenerale)

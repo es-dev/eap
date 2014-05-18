@@ -19,6 +19,7 @@ Partial Class Scrutinio
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Scrutinio))
         Me.Panel1 = New Gizmox.WebGUI.Forms.Panel()
         Me.lblSezioniValidate = New Gizmox.WebGUI.Forms.Label()
@@ -57,10 +58,12 @@ Partial Class Scrutinio
         Me.Label9 = New Gizmox.WebGUI.Forms.Label()
         Me.Panel2 = New Gizmox.WebGUI.Forms.Panel()
         Me.grid = New Gizmox.WebGUI.Forms.DataGridView()
-        Me.timerSync = New Gizmox.WebGUI.Forms.Timer()
+        Me.timerSync = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.cmdPubblica = New Gizmox.WebGUI.Forms.Button()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -328,7 +331,6 @@ Partial Class Scrutinio
         '
         Me.cmdPreferenzeCandidati.BackColor = System.Drawing.Color.Ivory
         Me.cmdPreferenzeCandidati.CustomStyle = "F"
-        Me.cmdPreferenzeCandidati.Enabled = False
         Me.cmdPreferenzeCandidati.FlatStyle = Gizmox.WebGUI.Forms.FlatStyle.Flat
         Me.cmdPreferenzeCandidati.Location = New System.Drawing.Point(666, 126)
         Me.cmdPreferenzeCandidati.Name = "cmdDownloadXLS"
@@ -387,7 +389,6 @@ Partial Class Scrutinio
         '
         Me.cboConsultazioni.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.Fixed3D
         Me.cboConsultazioni.Location = New System.Drawing.Point(97, 97)
-        Me.cboConsultazioni.MaxDropDownItems = 8
         Me.cboConsultazioni.Name = "cboConsultazioni"
         Me.cboConsultazioni.Size = New System.Drawing.Size(216, 21)
         Me.cboConsultazioni.TabIndex = 10
@@ -396,7 +397,6 @@ Partial Class Scrutinio
         '
         Me.cboVisualizzazione.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.Fixed3D
         Me.cboVisualizzazione.Location = New System.Drawing.Point(97, 126)
-        Me.cboVisualizzazione.MaxDropDownItems = 8
         Me.cboVisualizzazione.Name = "cboVisualizzazione"
         Me.cboVisualizzazione.Size = New System.Drawing.Size(216, 21)
         Me.cboVisualizzazione.TabIndex = 11
@@ -438,7 +438,6 @@ Partial Class Scrutinio
         Me.grid.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
             Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
             Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
-        Me.grid.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
         Me.grid.ColumnHeadersHeightSizeMode = Gizmox.WebGUI.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.ItemsPerPage = 200
         Me.grid.Location = New System.Drawing.Point(5, 159)
@@ -504,7 +503,9 @@ Partial Class Scrutinio
         Me.Text = "EAP - Elezioni OnLine - Homepage"
         Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerSync}
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
