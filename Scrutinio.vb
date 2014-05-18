@@ -1047,12 +1047,86 @@ Public Class Scrutinio
         Try
             Dim consultazione As String = cboConsultazioni.SelectedItem
             Dim pathRoot = UtilityContainer.GetRootPath(Context)
-            Dim templateName As String = IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
+            Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
-            Scrutinio2013(consultazione, pathRoot, fileTemplate, fileName)
-            UtilityContainer.MessageBox("Calcolo degli scrutini parziali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato DOC. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio parziale", MessageBoxIcon.Information)
+            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+            UtilityContainer.MessageBox("Calcolo degli scrutini parziali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio parziale", MessageBoxIcon.Information)
 
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+    End Sub
+
+    Public Sub Scrutinio2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String)
+        Try
+            Dim fileDestination As String = pathRoot + "Resources\Reports\" + fileName
+            IO.File.Copy(fileTemplate, fileDestination, True)
+
+            Dim excel As New Spire.Xls.Workbook()
+            excel.Version = Spire.Xls.ExcelVersion.Version97to2003
+            excel.LoadFromFile(fileDestination)
+
+            Dim sheetName As String = "Foglio1"
+            Dim sheet = excel.Worksheets(sheetName)
+
+            If (Not consultazione Is Nothing) Then
+                Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
+                Dim numeroSezioniCollegio As Integer = 82
+                Dim sezioniIDs As ArrayList = GetSezioniIDs(IDConsultazione, consultazione) 'sono le sole sezioni rilevate...
+                Dim sezioniRilevate As Integer = sezioniIDs.Count
+                Dim col = 2
+                sheet.SetValue(2, col, sezioniRilevate.ToString)
+                col += 1
+
+                Dim votantiMaschi = GetVotantiMaschi(IDConsultazione, consultazione, sezioniIDs)
+                sheet.SetValue(2, col, votantiMaschi.ToString)
+                col += 1
+
+                Dim votantiFemmine = GetVotantiFemmine(IDConsultazione, consultazione, sezioniIDs)
+                sheet.SetValue(2, col, votantiFemmine.ToString)
+                col += 1
+
+                Dim votantiTotali = votantiMaschi + votantiFemmine
+                sheet.SetValue(2, col, votantiTotali.ToString)
+                col += 1
+
+                'voti di lista
+                Dim votiTotaliListe As Integer = 0
+                Dim numeroListe As Integer = GetNumeroListe(IDConsultazione)
+                For numeroLista As Integer = 1 To numeroListe
+                    Dim IDLista As Integer = GetIDListaFromNumero(IDConsultazione, numeroLista)
+                    Dim voti = GetVotiValidiLista(IDConsultazione, IDLista, sezioniIDs)
+                    sheet.SetValue(2, col, voti.ToString)
+                    col += 1
+                    votiTotaliListe += voti
+                Next
+                sheet.SetValue(2, col, votiTotaliListe.ToString)
+                col += 1
+
+                'totali e quadrature
+                Dim schedeBianche = GetSchedeBianche(IDConsultazione, sezioniIDs)
+                sheet.SetValue(2, col, schedeBianche.ToString)
+                col += 1
+
+                Dim schedeNulle = GetSchedeNulle(IDConsultazione, sezioniIDs)
+                sheet.SetValue(2, col, schedeNulle.ToString)
+                col += 1
+
+                Dim schedeContestate = GetSchedeContestate(IDConsultazione, sezioniIDs)
+                sheet.SetValue(2, col, schedeContestate.ToString)
+                col += 1
+
+                Dim votiTotali = votiTotaliListe + schedeBianche + schedeNulle + schedeContestate
+                sheet.SetValue(2, col, votiTotali.ToString)
+
+                sheet.Unprotect()
+                excel.UnProtect()
+                excel.Save()
+
+            End If
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -1471,11 +1545,11 @@ Public Class Scrutinio
         Try
             Dim consultazione As String = cboConsultazioni.SelectedItem
             Dim pathRoot = UtilityContainer.GetRootPath(Context)
-            Dim templateName As String = IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
+            Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
-            Scrutinio2013(consultazione, pathRoot, fileTemplate, fileName)
-            UtilityContainer.MessageBox("Calcolo degli scrutini finali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato DOC. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio finale", MessageBoxIcon.Information)
+            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+            UtilityContainer.MessageBox("Calcolo degli scrutini finali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio finale", MessageBoxIcon.Information)
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -1711,8 +1785,68 @@ Public Class Scrutinio
 
     Private Sub cmdPreferenzeCandidati_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPreferenzeCandidati.Click
         Try
-            Preferenze2011()
-            UtilityContainer.MessageBox("Calcolo delle preferenze ai candidati consiglieri completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato DOC. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio preferenze", MessageBoxIcon.Information)
+            Dim consultazione As String = cboConsultazioni.SelectedItem
+            Dim pathRoot = UtilityContainer.GetRootPath(Context)
+            Dim templateName As String = "Scrutini_Preferenze_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
+            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
+            Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
+            Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
+            UtilityContainer.MessageBox("Calcolo delle preferenze ai candidati completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio preferenze", MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        
+    End Sub
+
+    Public Sub Preferenze2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String)
+        Try
+            Dim fileDestination As String = pathRoot + "Resources\Reports\" + fileName
+            IO.File.Copy(fileTemplate, fileDestination, True)
+
+            Dim excel As New Spire.Xls.Workbook()
+            excel.Version = Spire.Xls.ExcelVersion.Version97to2003
+            excel.LoadFromFile(fileDestination)
+
+            Dim sheetName As String = "Foglio1"
+            Dim sheet = excel.Worksheets(sheetName)
+
+            If (Not consultazione Is Nothing) Then
+                Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
+                Dim numeroSezioniCollegio As Integer = 82
+                Dim sezioniIDs As ArrayList = GetSezioniIDs(IDConsultazione, consultazione) 'sono le sole sezioni rilevate...
+                Dim sezioniRilevate As Integer = sezioniIDs.Count
+
+                Dim votantiMaschi = GetVotantiMaschi(IDConsultazione, consultazione, sezioniIDs)
+                Dim votantiFemmine = GetVotantiFemmine(IDConsultazione, consultazione, sezioniIDs)
+                Dim votantiTotali = votantiMaschi + votantiFemmine
+
+                'voti di lista
+                Dim col = 2
+                Dim votiTotaliListe As Integer = 0
+                Dim numeroListe As Integer = GetNumeroListe(IDConsultazione)
+                For numeroLista As Integer = 1 To numeroListe
+                    Dim IDLista As Integer = GetIDListaFromNumero(IDConsultazione, numeroLista)
+                    Dim numeroCandidati As Integer = GetNumeroCandidati(IDConsultazione, IDLista)
+                    For numeroCandidato As Integer = 1 To numeroCandidati
+                        Dim IDCandidato As Integer = GetIDCandidatoFromNumero(IDConsultazione, IDLista, numeroCandidato)
+                        Dim votiCandidato = GetVotiValidiCandidato(IDConsultazione, IDCandidato, sezioniIDs)
+                        sheet.SetValue(2, col, votiCandidato.ToString)
+                        col += 1
+                    Next
+                    Dim votiLista = GetVotiValidiLista(IDConsultazione, IDLista, sezioniIDs)
+                    sheet.SetValue(2, col, votiLista.ToString)
+                    col += 1
+
+                    votiTotaliListe += votiLista
+                Next
+
+                sheet.Unprotect()
+                excel.UnProtect()
+                excel.Save()
+
+            End If
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -1720,13 +1854,8 @@ Public Class Scrutinio
         End Try
     End Sub
 
-    Private Sub Preferenze2011()
+    Private Sub Preferenze2011(fileTemplate As String, fileDestination As String)
         Try
-            Dim templateName As String = "COMUNICAZIONI_PREFERENZE_2011"
-            Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".doc"
-            Dim pathRoot As String = Gizmox.WebGUI.Forms.VWGContext.Current.HttpContext.Request.PhysicalApplicationPath + "Resources\"
-            Dim fileTemplate As String = pathRoot + "Templates\" + templateName + ".doc"
-            Dim fileDestination As String = pathRoot + "Reports\" + fileName
             IO.File.Copy(fileTemplate, fileDestination, True)
 
             Dim word As New OfficeUtility.WordUtility

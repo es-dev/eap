@@ -263,6 +263,7 @@ Partial Class Operatori
         Me.cboConsultazioniDestinazione.Name = "cboConsultazioniDestinazione"
         Me.cboConsultazioniDestinazione.Size = New System.Drawing.Size(256, 21)
         Me.cboConsultazioniDestinazione.TabIndex = 8
+        Me.cboConsultazioniDestinazione.Visible = False
         '
         'Label5
         '
@@ -273,6 +274,7 @@ Partial Class Operatori
         Me.Label5.Size = New System.Drawing.Size(259, 39)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Consultazione di destinazione (valida per copia permessi/corpo elettorale)"
+        Me.Label5.Visible = False
         '
         'Operatori
         '
@@ -291,7 +293,6 @@ Partial Class Operatori
         Me.Controls.Add(Me.cmdIndietro)
         Me.Controls.Add(Me.cmdLogout)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = Gizmox.WebGUI.Forms.FormBorderStyle.Sizable
         Me.Size = New System.Drawing.Size(906, 548)
         Me.Text = "EAP - Elezioni OnLine - Homepage"
         Me.Panel1.ResumeLayout(False)
