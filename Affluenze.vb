@@ -2,7 +2,6 @@ Imports Gizmox.WebGUI.Forms
 
 Public Class Affluenze
 
-
     Public Sub New()
 
         ' This call is required by the Windows Form Designer.
@@ -83,8 +82,8 @@ Public Class Affluenze
                 grid.DataSource = tableAffluenze
                 SetStyleGrid()
 
-                Dim sezioniRilevate As Integer = GetSezioniRilevate(IDConsultazione, IDCollegio)
-                Dim numeroSezioniCollegio As Integer = GetNumeroSezioniCollegio(IDConsultazione, IDCollegio)
+                'Dim sezioniRilevate As Integer = GetSezioniRilevate(IDConsultazione, IDCollegio)
+                'Dim numeroSezioniCollegio As Integer = GetNumeroSezioniCollegio(IDConsultazione, IDCollegio)
                 'ToDo: lblSezioniRilevate.Text = "Sezioni rilevate " + sezioniRilevate.ToString + " su " + numeroSezioniCollegio.ToString
 
             End If
@@ -94,45 +93,45 @@ Public Class Affluenze
         End Try
     End Sub
 
-    Private Function GetSezioniRilevate(ByVal IDConsultazione As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
-        Try
-            Dim sezioniRilevate As Integer = 0
-            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
-            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
-                Dim IDSezione As Integer = sezione.id_sez
-                If (IsInCollegio(IDConsultazione, IDCollegio, IDSezione)) Then
-                    sezioniRilevate += 1
-                End If
-            Next
+    'Private Function GetSezioniRilevate(ByVal IDConsultazione As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
+    '    Try
+    '        Dim sezioniRilevate As Integer = 0
+    '        Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+    '        Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
+    '        For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
+    '            Dim IDSezione As Integer = sezione.id_sez
+    '            If (IsInCollegio(IDConsultazione, IDCollegio, IDSezione)) Then
+    '                sezioniRilevate += 1
+    '            End If
+    '        Next
 
-            Return sezioniRilevate
+    '        Return sezioniRilevate
 
-        Catch ex As Exception
-            UtilityContainer.ErrorLog(ex)
+    '    Catch ex As Exception
+    '        UtilityContainer.ErrorLog(ex)
 
-        End Try
-        Return -1
+    '    End Try
+    '    Return -1
 
-    End Function
+    'End Function
 
-    Private Function GetNumeroSezioniCollegio(ByVal IDConsultazione As Integer, ByVal IDCollegio As Integer) As Integer
-        Try
-            Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
-            Dim table As DataTable = adapter.GetDataByIDConsultazioneIDCollegio(IDConsultazione, IDCollegio)
-            Dim numeroSezioniCollegio As Integer = table.Rows.Count
-            If (IDCollegio = -1) Then
-                numeroSezioniCollegio = 82
-            End If
-            Return numeroSezioniCollegio
+    'Private Function GetNumeroSezioniCollegio(ByVal IDConsultazione As Integer, ByVal IDCollegio As Integer) As Integer
+    '    Try
+    '        Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
+    '        Dim table As DataTable = adapter.GetDataByIDConsultazioneIDCollegio(IDConsultazione, IDCollegio)
+    '        Dim numeroSezioniCollegio As Integer = table.Rows.Count
+    '        If (IDCollegio = -1) Then
+    '            numeroSezioniCollegio = 82
+    '        End If
+    '        Return numeroSezioniCollegio
 
-        Catch ex As Exception
-            UtilityContainer.ErrorLog(ex)
+    '    Catch ex As Exception
+    '        UtilityContainer.ErrorLog(ex)
 
-        End Try
-        Return -1
+    '    End Try
+    '    Return -1
 
-    End Function
+    'End Function
 
     Private Function GetIDCollegio(ByVal IDConsultazioneGenerale As Integer, ByVal collegio As String) As Integer
         Try
@@ -159,7 +158,7 @@ Public Class Affluenze
             For Each column As Gizmox.WebGUI.Forms.DataGridViewColumn In grid.Columns
                 Dim columnName As String = column.Name
                 If (columnName.IndexOf("/") >= 0) Then
-                    column.Width = 120
+                    column.Width = 150
                 End If
             Next
 
@@ -184,10 +183,10 @@ Public Class Affluenze
             For Each affluenza As EAPModel.soraldo_ele_rilaffRow In affluenze.Rows
                 Dim data As Date = affluenza.data
                 Dim orario As TimeSpan = affluenza.orario
-                Dim columnName As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
-                totaliAffluenze.Add(columnName, 0)
-                totaliAffluenze.Add(columnName + "(M)", 0)
-                totaliAffluenze.Add(columnName + "(F)", 0)
+                Dim columnNameAff As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
+                totaliAffluenze.Add(columnNameAff, 0)
+                totaliAffluenze.Add(columnNameAff + "(M)", 0)
+                totaliAffluenze.Add(columnNameAff + "(F)", 0)
             Next
             For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 Dim IDSezione As Integer = sezione.id_sez
@@ -210,16 +209,16 @@ Public Class Affluenze
                     For Each affluenza As EAPModel.soraldo_ele_rilaffRow In affluenze.Rows
                         Dim data As Date = affluenza.data
                         Dim orario As TimeSpan = affluenza.orario
-                        Dim columnName As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
-                        Dim votoParziale = GetVotoParziale(IDConsultazione, IDSezione, columnName)
+                        Dim columnNameRowAff As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
+                        Dim votoParziale = GetVotoParziale(IDConsultazione, IDSezione, columnNameRowAff)
                         If (Not votoParziale Is Nothing) Then
-                            rowAffluenza(columnName) = votoParziale.voti_complessivi
-                            If (orario.Hours = 15) Then
-                                rowAffluenza(columnName + "(M)") = votoParziale.voti_uomini
-                                rowAffluenza(columnName + "(F)") = votoParziale.voti_donne
-                                totaliAffluenze(columnName) += votoParziale.voti_complessivi
-                                totaliAffluenze(columnName + "(M)") += votoParziale.voti_uomini
-                                totaliAffluenze(columnName + "(F)") += votoParziale.voti_donne
+                            rowAffluenza(columnNameRowAff) = votoParziale.voti_complessivi
+                            totaliAffluenze(columnNameRowAff) += votoParziale.voti_complessivi
+                            If (orario.Hours = 23) Then
+                                rowAffluenza(columnNameRowAff + "(M)") = votoParziale.voti_uomini
+                                rowAffluenza(columnNameRowAff + "(F)") = votoParziale.voti_donne
+                                totaliAffluenze(columnNameRowAff + "(M)") += votoParziale.voti_uomini
+                                totaliAffluenze(columnNameRowAff + "(F)") += votoParziale.voti_donne
                             End If
                         End If
                     Next
@@ -492,7 +491,7 @@ Public Class Affluenze
     Private Sub lnkReports_LinkClicked(sender As System.Object, e As Gizmox.WebGUI.Forms.LinkLabelLinkClickedEventArgs) Handles lnkReports.LinkClicked
         Try
             Dim root = UtilityContainer.GetRootUrl(Context)
-            Dim url = root + "/resources/reports"
+            Dim url = root + "/eap/resources/reports"
             Link.Open(url)
 
         Catch ex As Exception
