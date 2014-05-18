@@ -26,7 +26,7 @@ Public Class Affluenze
 
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
             Dim collegi= GetCollegi(IDConsultazioneGenerale)
-            For Each collegio As EAPVoti.soraldo_ele_collegiRow In collegi
+            For Each collegio As EAPModel.soraldo_ele_collegiRow In collegi
                 Dim nomeCollegio As String = collegio.descrizione
                 cboCollegio.Items.Add(nomeCollegio)
             Next
@@ -39,7 +39,7 @@ Public Class Affluenze
 
     Private Function GetCollegi(ByVal IDConsultazioneGenerale As Integer) As DataRow()
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_collegiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim rows As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString(), "descrizione asc")
             Return rows
@@ -56,8 +56,8 @@ Public Class Affluenze
         Try
             cboConsultazioni.Items.Clear()
 
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_consultazioneTableAdapter
-            Dim table As EAPOperatori2.soraldo_ele_consultazioneDataTable = adapter.GetData
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim table As EAPModel.soraldo_ele_consultazioneDataTable = adapter.GetData
             For Each row In table
                 cboConsultazioni.Items.Add(row.descrizione)
             Next
@@ -97,9 +97,9 @@ Public Class Affluenze
     Private Function GetSezioniRilevate(ByVal IDConsultazione As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
         Try
             Dim sezioniRilevate As Integer = 0
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 Dim IDSezione As Integer = sezione.id_sez
                 If (IsInCollegio(IDConsultazione, IDCollegio, IDSezione)) Then
                     sezioniRilevate += 1
@@ -118,7 +118,7 @@ Public Class Affluenze
 
     Private Function GetNumeroSezioniCollegio(ByVal IDConsultazione As Integer, ByVal IDCollegio As Integer) As Integer
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDCollegio(IDConsultazione, IDCollegio)
             Dim numeroSezioniCollegio As Integer = table.Rows.Count
             If (IDCollegio = -1) Then
@@ -136,11 +136,11 @@ Public Class Affluenze
 
     Private Function GetIDCollegio(ByVal IDConsultazioneGenerale As Integer, ByVal collegio As String) As Integer
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_collegiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGeneraleDescrizione(IDConsultazioneGenerale, collegio)
             Dim rows As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString() + " and descrizione='" + collegio + "'")
             If (rows.Length >= 1) Then
-                Dim row As EAPVoti.soraldo_ele_collegiRow = rows(0)
+                Dim row As EAPModel.soraldo_ele_collegiRow = rows(0)
                 Dim IDCollegio As Integer = row.id_collegio
                 Return IDCollegio
 
@@ -173,15 +173,15 @@ Public Class Affluenze
         Try
             tableAffluenze.Rows.Clear()
 
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim sezioni = adapter.GetDataByIDConsultazione(IDConsultazione)
 
-            Dim rowAffluenza As EAPAffluenze.AffluenzeRow = Nothing
+            Dim rowAffluenza As EAPModel.AffluenzeRow = Nothing
             Dim totaleMaschi As Integer = 0
             Dim totaleFemmine As Integer = 0
             Dim totaliAffluenze As New Hashtable
             Dim affluenze = GetRilevazioniAffluenze(IDConsultazioneGenerale)
-            For Each affluenza As EAPAffluenze.soraldo_ele_rilaffRow In affluenze.Rows
+            For Each affluenza As EAPModel.soraldo_ele_rilaffRow In affluenze.Rows
                 Dim data As Date = affluenza.data
                 Dim orario As TimeSpan = affluenza.orario
                 Dim columnName As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
@@ -189,7 +189,7 @@ Public Class Affluenze
                 totaliAffluenze.Add(columnName + "(M)", 0)
                 totaliAffluenze.Add(columnName + "(F)", 0)
             Next
-            For Each sezione As EAPAffluenze.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 Dim IDSezione As Integer = sezione.id_sez
                 If (IsInCollegio(IDConsultazione, IDCollegio, IDSezione)) Then
                     rowAffluenza = tableAffluenze.NewAffluenzeRow
@@ -207,7 +207,7 @@ Public Class Affluenze
                     totaleFemmine += femmine
 
 
-                    For Each affluenza As EAPAffluenze.soraldo_ele_rilaffRow In affluenze.Rows
+                    For Each affluenza As EAPModel.soraldo_ele_rilaffRow In affluenze.Rows
                         Dim data As Date = affluenza.data
                         Dim orario As TimeSpan = affluenza.orario
                         Dim columnName As String = data.ToString("dd/MM/yy") + " - " + orario.Hours.ToString("00") + "." + orario.Minutes.ToString("00")
@@ -281,7 +281,7 @@ Public Class Affluenze
     Private Function IsInCollegio(ByVal IDConsultazione As Integer, ByVal IDCollegio As Integer, ByVal IDSezione As Integer) As Boolean
         Try
             'If (IDCollegio <> -1) Then
-            '    Dim adapter As New EAPVotiTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
+            '    Dim adapter As New EAPModelTableAdapters.soraldo_ele_collegi_sezioniTableAdapter
             '    Dim table As DataTable = adapter.GetDataByIDConsultazioneIDCollegioIDSezione(IDConsultazione, IDCollegio, IDSezione)
             '    Dim inCollegio As Boolean = (table.Rows.Count >= 1)
             '    Return inCollegio
@@ -298,9 +298,9 @@ Public Class Affluenze
 
     End Function
 
-    Private Function GetVotoParziale(ByVal IDConsultazione As Integer, ByVal IDSezione As Integer, dataSQL As String) As EAPAffluenze.soraldo_ele_voti_parzialeRow
+    Private Function GetVotoParziale(ByVal IDConsultazione As Integer, ByVal IDSezione As Integer, dataSQL As String) As EAPModel.soraldo_ele_voti_parzialeRow
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_voti_parzialeTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_parzialeTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             For Each row In table
                 Dim dataRowSQL = row.data.ToString("dd/MM/yy") + " - " + row.orario.Hours.ToString("00") + "." + row.orario.Minutes.ToString("00")
@@ -319,7 +319,7 @@ Public Class Affluenze
 
     Private Function GetRilevazioniAffluenze(ByVal IDConsultazioneGenerale As Integer) As DataTable
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_rilaffTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_rilaffTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Return table
 
@@ -331,16 +331,16 @@ Public Class Affluenze
 
     End Function
 
-    Private tableAffluenze As New EAPAffluenze.AffluenzeDataTable
+    Private tableAffluenze As New EAPModel.AffluenzeDataTable
 
     Private Sub SetColonneGrid(ByVal IDConsultazioneGenerale As Integer)
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_rilaffTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_rilaffTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim affluenze As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString, "data asc, orario asc")
             Dim count As Integer = affluenze.Length
             For index As Integer = 0 To count - 1
-                Dim affluenza As EAPAffluenze.soraldo_ele_rilaffRow = affluenze(index)
+                Dim affluenza As EAPModel.soraldo_ele_rilaffRow = affluenze(index)
                 Dim data As String = affluenza.data.ToString("dd/MM/yy") + " - " + affluenza.orario.Hours.ToString("00") + "." + affluenza.orario.Minutes.ToString("00")
                 Dim searchColumn As String = "Affluenza" + (index + 1).ToString
                 For Each column As DataColumn In tableAffluenze.Columns
@@ -358,11 +358,11 @@ Public Class Affluenze
     Private Function GetIDConsultazione(ByVal descrizione As String) As Integer
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_cons_comuneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_cons_comuneTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim consultazioni As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString)
             If (consultazioni.Length >= 1) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_cons_comuneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_cons_comuneRow = consultazioni(0)
                 Dim IDConsultazione As Integer = consultazione.id_cons
                 Return IDConsultazione
 
@@ -378,11 +378,11 @@ Public Class Affluenze
 
     Private Function GetIDConsultazioneGenerale(ByVal descrizione As String) As Integer
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table As DataTable = adapter.GetDataByDescrizione(descrizione)
             Dim consultazioni As DataRow() = table.Select("descrizione='" + descrizione + "'")
             If (consultazioni.Length >= 0) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_consultazioneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_consultazioneRow = consultazioni(0)
                 Dim IDConsultazioneGenerale As Integer = consultazione.id_cons_gen
                 Return IDConsultazioneGenerale
             End If

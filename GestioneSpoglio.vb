@@ -97,12 +97,12 @@ Public Class GestioneSpoglio
         Try
             Dim id_cons As Integer = GetIDConsultazione(consultazione)
             Dim id_sede As Integer = GetIDSede(sede, id_cons)
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataByIDSedeIDConsultazione(id_sede, id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataByIDSedeIDConsultazione(id_sede, id_cons)
 
             cboSezioni.Items.Clear()
             cboSezioni.Text = ""
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 Dim numeroSezione As Integer = sezione.num_sez
                 cboSezioni.Items.Add(numeroSezione.ToString)
             Next
@@ -118,10 +118,10 @@ Public Class GestioneSpoglio
 
     Private Function GetIDSede(ByVal indirizzo As String, ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sedeTableAdapter
-            Dim sedi As EAP.soraldo_ele_sedeDataTable = adapter.GetDataBySedeIDConsultazione(indirizzo, id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sedeTableAdapter
+            Dim sedi As EAPModel.soraldo_ele_sedeDataTable = adapter.GetDataBySedeIDConsultazione(indirizzo, id_cons)
             If (sedi.Count >= 1) Then
-                Dim sede As EAP.soraldo_ele_sedeRow = sedi(0)
+                Dim sede As EAPModel.soraldo_ele_sedeRow = sedi(0)
                 Dim IDSede As Integer = sede.id_sede
                 Return IDSede
             End If
@@ -137,12 +137,12 @@ Public Class GestioneSpoglio
         Try
             Dim id_cons As Integer = GetIDConsultazione(consultazione)
             Dim user As String = Session.Item("user")
-            Dim adapter As New EAPTableAdapters.soraldo_ele_operatoriTableAdapter
-            Dim sediOperatore As EAP.soraldo_ele_operatoriDataTable = adapter.GetDataByIDConsultazioneAid(id_cons, user)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_operatoriTableAdapter
+            Dim sediOperatore As EAPModel.soraldo_ele_operatoriDataTable = adapter.GetDataByIDConsultazioneAid(id_cons, user)
 
             cboSedi.Items.Clear()
             cboSedi.Text = ""
-            For Each sedeOperatore As EAP.soraldo_ele_operatoriRow In sediOperatore
+            For Each sedeOperatore As EAPModel.soraldo_ele_operatoriRow In sediOperatore
                 Dim id_sede As Integer = sedeOperatore.id_sede
                 Dim sede As String = GetSede(id_sede)
                 cboSedi.Items.Add(sede)
@@ -159,15 +159,15 @@ Public Class GestioneSpoglio
 
     Private Function GetIDConsultazione(ByVal descrizione As String) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_consultazioneTableAdapter
-            Dim consultazioni As EAP.soraldo_ele_consultazioneDataTable = adapter.GetDataByConsultazione(descrizione)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim consultazioni As EAPModel.soraldo_ele_consultazioneDataTable = adapter.GetDataByConsultazione(descrizione)
             If (consultazioni.Count >= 1) Then
-                Dim consultazione As EAP.soraldo_ele_consultazioneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_consultazioneRow = consultazioni(0)
                 Dim id_cons_gen As Integer = consultazione.id_cons_gen
-                Dim adapterConsultazioniComune As New EAPTableAdapters.soraldo_ele_cons_comuneTableAdapter
-                Dim consultazioniComune As EAP.soraldo_ele_cons_comuneDataTable = adapterConsultazioniComune.GetDataByConsultazioneGenerale(id_cons_gen)
+                Dim adapterConsultazioniComune As New EAPModelTableAdapters.soraldo_ele_cons_comuneTableAdapter
+                Dim consultazioniComune As EAPModel.soraldo_ele_cons_comuneDataTable = adapterConsultazioniComune.GetDataByIDConsultazioneGenerale(id_cons_gen)
                 If (consultazioniComune.Count >= 1) Then
-                    Dim consultazioneComune As EAP.soraldo_ele_cons_comuneRow = consultazioniComune(0)
+                    Dim consultazioneComune As EAPModel.soraldo_ele_cons_comuneRow = consultazioniComune(0)
                     Dim id_cons As Integer = consultazioneComune.id_cons
                     Return id_cons
                 End If
@@ -183,10 +183,10 @@ Public Class GestioneSpoglio
 
     Private Function GetSede(ByVal id_sede As Integer) As String
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sedeTableAdapter
-            Dim sedi As EAP.soraldo_ele_sedeDataTable = adapter.GetDataByIDSede(id_sede)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sedeTableAdapter
+            Dim sedi As EAPModel.soraldo_ele_sedeDataTable = adapter.GetDataByIDSede(id_sede)
             If (sedi.Count >= 1) Then
-                Dim sede As EAP.soraldo_ele_sedeRow = sedi(0)
+                Dim sede As EAPModel.soraldo_ele_sedeRow = sedi(0)
                 Dim nomeSede As String = sede.indirizzo
                 Return nomeSede
             End If
@@ -212,12 +212,12 @@ Public Class GestioneSpoglio
 
     Private Sub LoadConsultazioni()
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_consultazioneTableAdapter
-            Dim consultazioni As EAP.soraldo_ele_consultazioneDataTable = adapter.GetData
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim consultazioni As EAPModel.soraldo_ele_consultazioneDataTable = adapter.GetData
 
             cboConsultazioni.Items.Clear()
             cboConsultazioni.Text = ""
-            For Each consultazione As EAP.soraldo_ele_consultazioneRow In consultazioni
+            For Each consultazione As EAPModel.soraldo_ele_consultazioneRow In consultazioni
                 Dim tipo As Integer = consultazione.tipo_cons
                 If (tipo = 11) Then
                     Dim descrizione As String = consultazione.descrizione

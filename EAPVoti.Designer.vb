@@ -6754,11 +6754,11 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons`, `id_lista`, `num_lista`, `id_gruppo`, `id_circ`, `descrizione`,"& _ 
-                " `simbolo`, `stemma` FROM `eleonline`.`soraldo_ele_lista` where id_cons=?id_cons"& _ 
+                " `simbolo`, `stemma` FROM `eleonline`.`soraldo_ele_lista` where id_cons=@id_cons"& _ 
                 ""
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -6767,18 +6767,18 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT `id_cons`, `id_lista`, `num_lista`, `id_gruppo`, `id_circ`, `descrizione`,"& _ 
-                " `simbolo`, `stemma` FROM `eleonline`.`soraldo_ele_lista` where id_cons=?id_cons"& _ 
-                " and descrizione=?desc"
+                " `simbolo`, `stemma` FROM `eleonline`.`soraldo_ele_lista` where id_cons=@id_cons"& _ 
+                " and descrizione=@desc"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?desc"
+            param.ParameterName = "@desc"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.Size = 2147483647
@@ -6815,9 +6815,9 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazione(ByVal dataTable As EAPVoti.soraldo_ele_listaDataTable, ByVal id_cons As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazione(ByVal dataTable As EAPVoti.soraldo_ele_listaDataTable, ByVal __id_cons As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -6829,9 +6829,9 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazione(ByVal id_cons As Integer) As EAPVoti.soraldo_ele_listaDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazione(ByVal __id_cons As Integer) As EAPVoti.soraldo_ele_listaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
             Dim dataTable As EAPVoti.soraldo_ele_listaDataTable = New EAPVoti.soraldo_ele_listaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -6841,13 +6841,13 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneDescrizione(ByVal dataTable As EAPVoti.soraldo_ele_listaDataTable, ByVal id_cons As Integer, ByVal desc As String) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneDescrizione(ByVal dataTable As EAPVoti.soraldo_ele_listaDataTable, ByVal __id_cons As Integer, ByVal __desc As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
-            If (desc Is Nothing) Then
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
+            If (__desc Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(desc,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(__desc,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6860,13 +6860,13 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneDescrizione(ByVal id_cons As Integer, ByVal desc As String) As EAPVoti.soraldo_ele_listaDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneDescrizione(ByVal __id_cons As Integer, ByVal __desc As String) As EAPVoti.soraldo_ele_listaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons,Integer)
-            If (desc Is Nothing) Then
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons,Integer)
+            If (__desc Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(desc,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(__desc,String)
             End If
             Dim dataTable As EAPVoti.soraldo_ele_listaDataTable = New EAPVoti.soraldo_ele_listaDataTable()
             Me.Adapter.Fill(dataTable)
@@ -7111,10 +7111,10 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_collegio`, `id_cons_gen`, `descrizione` FROM `eleonline`.`soraldo_ele_"& _ 
-                "collegi` where id_cons_gen=?id_cons_gen"
+                "collegi` where id_cons_gen=@id_cons_gen"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons_gen"
+            param.ParameterName = "@id_cons_gen"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -7123,17 +7123,17 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT `id_collegio`, `id_cons_gen`, `descrizione` FROM `eleonline`.`soraldo_ele_"& _ 
-                "collegi` where id_cons_gen=?id_cons_gen and descrizione=?descrizione"
+                "collegi` where id_cons_gen=@id_cons_gen and descrizione=@descrizione"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons_gen"
+            param.ParameterName = "@id_cons_gen"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "id_cons_gen"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?descrizione"
+            param.ParameterName = "@descrizione"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.Size = 2147483647
@@ -7170,9 +7170,9 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneGenerale(ByVal dataTable As EAPVoti.soraldo_ele_collegiDataTable, ByVal id_cons_gen As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneGenerale(ByVal dataTable As EAPVoti.soraldo_ele_collegiDataTable, ByVal __id_cons_gen As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -7184,9 +7184,9 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal id_cons_gen As Integer) As EAPVoti.soraldo_ele_collegiDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal __id_cons_gen As Integer) As EAPVoti.soraldo_ele_collegiDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             Dim dataTable As EAPVoti.soraldo_ele_collegiDataTable = New EAPVoti.soraldo_ele_collegiDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -7196,13 +7196,13 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneGeneraleDescrizione(ByVal dataTable As EAPVoti.soraldo_ele_collegiDataTable, ByVal id_cons_gen As Integer, ByVal descrizione As String) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneGeneraleDescrizione(ByVal dataTable As EAPVoti.soraldo_ele_collegiDataTable, ByVal __id_cons_gen As Integer, ByVal __descrizione As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
-            If (descrizione Is Nothing) Then
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
+            If (__descrizione Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(descrizione,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(__descrizione,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -7215,13 +7215,13 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneGeneraleDescrizione(ByVal id_cons_gen As Integer, ByVal descrizione As String) As EAPVoti.soraldo_ele_collegiDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneGeneraleDescrizione(ByVal __id_cons_gen As Integer, ByVal __descrizione As String) As EAPVoti.soraldo_ele_collegiDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
-            If (descrizione Is Nothing) Then
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
+            If (__descrizione Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(descrizione,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(__descrizione,String)
             End If
             Dim dataTable As EAPVoti.soraldo_ele_collegiDataTable = New EAPVoti.soraldo_ele_collegiDataTable()
             Me.Adapter.Fill(dataTable)
@@ -9156,17 +9156,17 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons`, `id_collegio`, `id_sez` FROM `eleonline`.`soraldo_ele_collegi_s"& _ 
-                "ezioni` where id_cons=?id_cons and id_collegio=?id_collegio"
+                "ezioni` where id_cons=@id_cons and id_collegio=@id_collegio"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_collegio"
+            param.ParameterName = "@id_collegio"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -9175,24 +9175,24 @@ Namespace EAPVotiTableAdapters
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT `id_cons`, `id_collegio`, `id_sez` FROM `eleonline`.`soraldo_ele_collegi_s"& _ 
-                "ezioni` where id_cons=?id_cons and id_collegio=?id_collegio and id_sez=?id_sez"
+                "ezioni` where id_cons=@id_cons and id_collegio=@id_collegio and id_sez=@id_sez"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_collegio"
+            param.ParameterName = "@id_collegio"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
             param.SourceColumn = "id_collegio"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_sez"
+            param.ParameterName = "@id_sez"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -9228,14 +9228,14 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneIDCollegio(ByVal dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable, ByVal id_cons As Global.System.Nullable(Of Integer), ByVal id_collegio As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneIDCollegio(ByVal dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable, ByVal __id_cons As Global.System.Nullable(Of Integer), ByVal __id_collegio As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id_cons.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons.Value,Integer)
+            If (__id_cons.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_collegio,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(__id_collegio,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -9247,14 +9247,14 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneIDCollegio(ByVal id_cons As Global.System.Nullable(Of Integer), ByVal id_collegio As Integer) As EAPVoti.soraldo_ele_collegi_sezioniDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneIDCollegio(ByVal __id_cons As Global.System.Nullable(Of Integer), ByVal __id_collegio As Integer) As EAPVoti.soraldo_ele_collegi_sezioniDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id_cons.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons.Value,Integer)
+            If (__id_cons.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_collegio,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(__id_collegio,Integer)
             Dim dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable = New EAPVoti.soraldo_ele_collegi_sezioniDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -9264,15 +9264,15 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneIDCollegioIDSezione(ByVal dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable, ByVal id_cons As Global.System.Nullable(Of Integer), ByVal id_collegio As Integer, ByVal id_sez As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneIDCollegioIDSezione(ByVal dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable, ByVal __id_cons As Global.System.Nullable(Of Integer), ByVal __id_collegio As Integer, ByVal __id_sez As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (id_cons.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons.Value,Integer)
+            If (__id_cons.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_collegio,Integer)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_sez,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(__id_collegio,Integer)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(__id_sez,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -9284,15 +9284,15 @@ Namespace EAPVotiTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneIDCollegioIDSezione(ByVal id_cons As Global.System.Nullable(Of Integer), ByVal id_collegio As Integer, ByVal id_sez As Integer) As EAPVoti.soraldo_ele_collegi_sezioniDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneIDCollegioIDSezione(ByVal __id_cons As Global.System.Nullable(Of Integer), ByVal __id_collegio As Integer, ByVal __id_sez As Integer) As EAPVoti.soraldo_ele_collegi_sezioniDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (id_cons.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons.Value,Integer)
+            If (__id_cons.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_collegio,Integer)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_sez,Integer)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(__id_collegio,Integer)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(__id_sez,Integer)
             Dim dataTable As EAPVoti.soraldo_ele_collegi_sezioniDataTable = New EAPVoti.soraldo_ele_collegi_sezioniDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

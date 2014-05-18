@@ -44,14 +44,14 @@ Public Class eStat
     Private Sub LoadStatistiche()
         Try
             Dim id_cons = 6 'CAMERA
-            Dim adapterListe As New EAPTableAdapters.soraldo_ele_listaTableAdapter
-            Dim listeCamera As EAP.soraldo_ele_listaDataTable = adapterListe.GetDataByIDConsultazione(id_cons)
+            Dim adapterListe As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
+            Dim listeCamera As EAPModel.soraldo_ele_listaDataTable = adapterListe.GetDataByIDConsultazione(id_cons)
 
             Dim sezioniRilevateCamera As Integer = GetSezioniRilevate(id_cons)
             lblSezioniRilevateCamera.Text = "Sezioni Rilevate " + sezioniRilevateCamera.ToString + " su 82"
 
             listCamera.Items.Clear()
-            For Each lista As EAP.soraldo_ele_listaRow In listeCamera
+            For Each lista As EAPModel.soraldo_ele_listaRow In listeCamera
                 Dim item As ListViewItem = listCamera.Items.Add(lista.num_lista)
                 item.SubItems.Add(lista.descrizione)
 
@@ -70,10 +70,10 @@ Public Class eStat
             Dim sezioniRilevateSenato As Integer = GetSezioniRilevate(id_cons)
             lblSezioniRilevateSenato.Text = "Sezioni Rilevate " + sezioniRilevateSenato.ToString + " su 82"
 
-            Dim listeSenato As EAP.soraldo_ele_listaDataTable = adapterListe.GetDataByIDConsultazione(id_cons)
+            Dim listeSenato As EAPModel.soraldo_ele_listaDataTable = adapterListe.GetDataByIDConsultazione(id_cons)
 
             listSenato.Items.Clear()
-            For Each lista As EAP.soraldo_ele_listaRow In listeSenato
+            For Each lista As EAPModel.soraldo_ele_listaRow In listeSenato
                 Dim item As ListViewItem = listSenato.Items.Add(lista.num_lista)
                 item.SubItems.Add(lista.descrizione)
 
@@ -98,11 +98,11 @@ Public Class eStat
 
     Private Function GetVotiBianchi(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
 
             Dim totale As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 totale += sezione.bianchi
             Next
 
@@ -118,11 +118,11 @@ Public Class eStat
 
     Private Function GetVotiContestati(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
 
             Dim totale As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 totale += sezione.contestati
             Next
 
@@ -138,11 +138,11 @@ Public Class eStat
 
     Private Function GetSchedeNulle(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
 
             Dim totale As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 totale += sezione.nulli
             Next
 
@@ -158,11 +158,11 @@ Public Class eStat
 
     Private Function GetVotiValidi(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
 
             Dim totale As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 totale += sezione.validi
             Next
 
@@ -179,11 +179,11 @@ Public Class eStat
 
     Private Function GetVotanti(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
 
             Dim totale As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 totale += sezione.validi + sezione.bianchi + sezione.nulli
             Next
 
@@ -199,8 +199,8 @@ Public Class eStat
 
     Private Function GetSezioniRilevate(ByVal id_cons As Integer) As Integer
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(id_cons)
             Dim sezioniRilevate As Integer = sezioni.Count
 
             Return sezioniRilevate
@@ -215,10 +215,10 @@ Public Class eStat
 
     Private Function GetVoti(ByVal id_cons As Integer, ByVal id_lista As Integer) As Integer
         Try
-            Dim adapterVoti As New EAPTableAdapters.soraldo_ele_voti_listaTableAdapter
-            Dim voti As EAP.soraldo_ele_voti_listaDataTable = adapterVoti.GetDataByIDConsultazioneIDLista(id_cons, id_lista)
+            Dim adapterVoti As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
+            Dim voti As EAPModel.soraldo_ele_voti_listaDataTable = adapterVoti.GetDataByIDConsultazioneIDLista(id_cons, id_lista)
             Dim votiTotali As Integer = 0
-            For Each voto As EAP.soraldo_ele_voti_listaRow In voti
+            For Each voto As EAPModel.soraldo_ele_voti_listaRow In voti
                 votiTotali += voto.voti
             Next
 
@@ -234,10 +234,10 @@ Public Class eStat
 
     Private Function GetContestati(ByVal id_cons As Integer, ByVal id_lista As Integer) As Integer
         Try
-            Dim adapterVoti As New EAPTableAdapters.soraldo_ele_voti_listaTableAdapter
-            Dim voti As EAP.soraldo_ele_voti_listaDataTable = adapterVoti.GetDataByIDConsultazioneIDLista(id_cons, id_lista)
+            Dim adapterVoti As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
+            Dim voti As EAPModel.soraldo_ele_voti_listaDataTable = adapterVoti.GetDataByIDConsultazioneIDLista(id_cons, id_lista)
             Dim votiTotaliContestati As Integer = 0
-            For Each voto As EAP.soraldo_ele_voti_listaRow In voti
+            For Each voto As EAPModel.soraldo_ele_voti_listaRow In voti
                 votiTotaliContestati += 0 'voto.cont
             Next
 
@@ -315,12 +315,12 @@ Public Class eStat
 
     Private Sub CalcoloAffluenze()
         Try
-            Dim adapter As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP.soraldo_ele_sezioniDataTable = adapter.GetDataByIDConsultazione(7)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataByIDConsultazione(7)
 
             Dim maschi As Integer = 0
             Dim femmine As Integer = 0
-            For Each sezione As EAP.soraldo_ele_sezioniRow In sezioni
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 maschi += sezione.maschi
                 femmine += sezione.femmine
 

@@ -7,17 +7,17 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-30" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:soraldo_ele_lista" ZOrder="9" X="59" Y="14" Height="241" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="160" />
-    <Shape ID="DesignTable:soraldo_ele_collegi" ZOrder="8" X="44" Y="254" Height="156" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
-    <Shape ID="DesignTable:soraldo_ele_voti_lista" ZOrder="5" X="351" Y="260" Height="173" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
-    <Shape ID="DesignTable:soraldo_ele_candidati" ZOrder="2" X="652" Y="62" Height="224" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="160" />
+    <Shape ID="DesignTable:soraldo_ele_collegi" ZOrder="1" X="764" Y="607" Height="221" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="115" />
+    <Shape ID="DesignTable:soraldo_ele_voti_lista" ZOrder="6" X="351" Y="260" Height="173" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
+    <Shape ID="DesignTable:soraldo_ele_candidati" ZOrder="3" X="652" Y="62" Height="224" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="160" />
     <Shape ID="DesignTable:soraldo_ele_voti_candidati" ZOrder="11" X="371" Y="456" Height="173" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
     <Shape ID="DesignTable:soraldo_ele_gruppo" ZOrder="10" X="716" Y="380" Height="207" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="143" />
-    <Shape ID="DesignTable:soraldo_ele_voti_gruppo" ZOrder="3" X="86" Y="415" Height="190" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
-    <Shape ID="DesignTable:soraldo_ele_collegi_sezioni" ZOrder="7" X="945" Y="228" Height="156" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
-    <Shape ID="DesignTable:soraldo_ele_voti_ref" ZOrder="6" X="639" Y="-15" Height="90" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:soraldo_ele_sezioni" ZOrder="1" X="1003" Y="-20" Height="309" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
+    <Shape ID="DesignTable:soraldo_ele_voti_gruppo" ZOrder="4" X="86" Y="415" Height="190" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
+    <Shape ID="DesignTable:soraldo_ele_collegi_sezioni" ZOrder="8" X="945" Y="228" Height="156" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
+    <Shape ID="DesignTable:soraldo_ele_voti_ref" ZOrder="7" X="639" Y="-15" Height="90" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:soraldo_ele_sezioni" ZOrder="2" X="1003" Y="-20" Height="309" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
     <Shape ID="DesignTable:Voti" ZOrder="12" X="454" Y="106" Height="125" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:VotiSezioni" ZOrder="4" X="429" Y="-3" Height="78" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="74" />
+    <Shape ID="DesignTable:VotiSezioni" ZOrder="5" X="429" Y="-3" Height="78" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="74" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

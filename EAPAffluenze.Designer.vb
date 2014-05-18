@@ -3886,10 +3886,10 @@ Namespace EAPAffluenzeTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons_gen`, `descrizione`, `data_inizio`, `data_fine`, `tipo_cons` FROM"& _ 
-                " `eleonline`.`soraldo_ele_consultazione` where descrizione=?desc"
+                " `eleonline`.`soraldo_ele_consultazione` where descrizione=@desc"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?desc"
+            param.ParameterName = "@desc"
             param.DbType = Global.System.Data.DbType.[String]
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Text
             param.Size = 2147483647
@@ -3926,12 +3926,12 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDescrizione(ByVal dataTable As EAPAffluenze.soraldo_ele_consultazioneDataTable, ByVal desc As String) As Integer
+        Public Overloads Overridable Function FillByDescrizione(ByVal dataTable As EAPAffluenze.soraldo_ele_consultazioneDataTable, ByVal __desc As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (desc Is Nothing) Then
+            If (__desc Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(desc,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__desc,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -3944,12 +3944,12 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByDescrizione(ByVal desc As String) As EAPAffluenze.soraldo_ele_consultazioneDataTable
+        Public Overloads Overridable Function GetDataByDescrizione(ByVal __desc As String) As EAPAffluenze.soraldo_ele_consultazioneDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (desc Is Nothing) Then
+            If (__desc Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(desc,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(__desc,String)
             End If
             Dim dataTable As EAPAffluenze.soraldo_ele_consultazioneDataTable = New EAPAffluenze.soraldo_ele_consultazioneDataTable()
             Me.Adapter.Fill(dataTable)
@@ -4200,10 +4200,10 @@ Namespace EAPAffluenzeTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons`, `chiusa`, `id_comune`, `id_cons_gen` FROM `eleonline`.`soraldo_"& _ 
-                "ele_cons_comune` where id_cons_gen=?id_cons_gen"
+                "ele_cons_comune` where id_cons_gen=@id_cons_gen"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons_gen"
+            param.ParameterName = "@id_cons_gen"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -4239,9 +4239,9 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneGenerale(ByVal dataTable As EAPAffluenze.soraldo_ele_cons_comuneDataTable, ByVal id_cons_gen As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneGenerale(ByVal dataTable As EAPAffluenze.soraldo_ele_cons_comuneDataTable, ByVal __id_cons_gen As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -4253,9 +4253,9 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal id_cons_gen As Integer) As EAPAffluenze.soraldo_ele_cons_comuneDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal __id_cons_gen As Integer) As EAPAffluenze.soraldo_ele_cons_comuneDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             Dim dataTable As EAPAffluenze.soraldo_ele_cons_comuneDataTable = New EAPAffluenze.soraldo_ele_cons_comuneDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -4494,10 +4494,10 @@ Namespace EAPAffluenzeTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT `id_cons_gen`, `orario`, `data` FROM `eleonline`.`soraldo_ele_rilaff` wher"& _ 
-                "e id_cons_gen=?id_cons_gen"
+                "e id_cons_gen=@id_cons_gen"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "?id_cons_gen"
+            param.ParameterName = "@id_cons_gen"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = true
@@ -4533,9 +4533,9 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByIDConsultazioneGenerlae(ByVal dataTable As EAPAffluenze.soraldo_ele_rilaffDataTable, ByVal id_cons_gen As Integer) As Integer
+        Public Overloads Overridable Function FillByIDConsultazioneGenerlae(ByVal dataTable As EAPAffluenze.soraldo_ele_rilaffDataTable, ByVal __id_cons_gen As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -4547,9 +4547,9 @@ Namespace EAPAffluenzeTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal id_cons_gen As Integer) As EAPAffluenze.soraldo_ele_rilaffDataTable
+        Public Overloads Overridable Function GetDataByIDConsultazioneGenerale(ByVal __id_cons_gen As Integer) As EAPAffluenze.soraldo_ele_rilaffDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons_gen,Integer)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(__id_cons_gen,Integer)
             Dim dataTable As EAPAffluenze.soraldo_ele_rilaffDataTable = New EAPAffluenze.soraldo_ele_rilaffDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

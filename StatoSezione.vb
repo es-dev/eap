@@ -57,7 +57,7 @@ Public Class StatoSezione
 
     Private Sub LoadStatoConsultazioni()
         Try
-            Dim table As New EAPReferendum.StatoSezioneDataTable
+            Dim table As New EAPModel.StatoSezioneDataTable
             Dim scrutinioSezioni As New Scrutinio
             For Each IDConsultazione As Integer In consultazioni.keys
                 Dim consultazione = consultazioni(IDConsultazione)

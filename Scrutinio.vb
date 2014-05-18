@@ -23,9 +23,9 @@ Public Class Scrutinio
         Try
             cboConsultazioni.Items.Clear()
 
-            Dim adapter As New EAPOperatori2TableAdapters.soraldo_ele_consultazioneTableAdapter
-            Dim table As EAPOperatori2.soraldo_ele_consultazioneDataTable = adapter.GetData
-            For Each row As EAPOperatori2.soraldo_ele_consultazioneRow In table
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim table As EAPModel.soraldo_ele_consultazioneDataTable = adapter.GetData
+            For Each row As EAPModel.soraldo_ele_consultazioneRow In table
                 Dim consultazione As String = row.descrizione
                 cboConsultazioni.Items.Add(consultazione)
             Next
@@ -103,7 +103,7 @@ Public Class Scrutinio
             Dim totValidi As Integer = 0
             Dim totVotantiM As Integer = 0
             Dim totVotantiF As Integer = 0
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim sezioni = GetSezioniIDs(IDConsultazione, consultazione)
             For Each IDSezione As Integer In sezioni
                 Dim row = GetVotiReferendum(IDConsultazione, IDSezione)
@@ -140,7 +140,7 @@ Public Class Scrutinio
             Dim totValidi As Integer = 0
             Dim totVotantiM As Integer = 0
             Dim totVotantiF As Integer = 0
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim sezioni = GetSezioniIDs(IDConsultazione, consultazione)
             For Each IDSezione As Integer In sezioni
                 Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
@@ -173,9 +173,9 @@ Public Class Scrutinio
     Private Function GetSezioniRilevate(ByVal IDConsultazione As Integer) As Integer
         Try
             Dim sezioniRilevate As Integer = 0
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
-            Dim sezioni As EAP2.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
-            For Each sezione As EAP2.soraldo_ele_sezioniRow In sezioni
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim sezioni As EAPModel.soraldo_ele_sezioniDataTable = adapter.GetDataBySezioniRilevate(IDConsultazione)
+            For Each sezione As EAPModel.soraldo_ele_sezioniRow In sezioni
                 sezioniRilevate += 1
             Next
 
@@ -191,7 +191,7 @@ Public Class Scrutinio
 
     Private Function GetSezioniRilevateReferendum(ByVal IDConsultazione As Integer) As Integer
         Try
-            Dim adapter As New EAPVotiReferendumTableAdapters.soraldo_ele_voti_refTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_refTableAdapter
             Dim table = adapter.GetDataByIDConsultazione(IDConsultazione)
             Return table.Count
 
@@ -205,18 +205,18 @@ Public Class Scrutinio
 
     Private Sub ShowDatiPresidenti(ByVal IDConsultazione As Integer, consultazione As String)
         Try
-            Dim tableVoti As New EAPVoti2.VotiDataTable
+            Dim tableVoti As New EAPModel.VotiDataTable
 
             Dim gruppi As DataRow() = GetGruppi(IDConsultazione)
             Dim sezioniIDs = GetSezioniIDs(IDConsultazione, consultazione)
-            For Each gruppo As EAPVoti.soraldo_ele_gruppoRow In gruppi
+            For Each gruppo As EAPModel.soraldo_ele_gruppoRow In gruppi
                 Dim nomePresidente As String = gruppo.descrizione
                 Dim numero As Integer = gruppo.num_gruppo
                 Dim IDGruppo As Integer = gruppo.id_gruppo
                 Dim votiValidi As Integer = GetVotiValidiGruppo(IDConsultazione, IDGruppo, sezioniIDs)
                 Dim votiSoloLista As Integer = GetVotiSoloGruppo(IDConsultazione, IDGruppo, sezioniIDs)
 
-                Dim rowVoti As EAPVoti2.VotiRow = tableVoti.NewVotiRow
+                Dim rowVoti As EAPModel.VotiRow = tableVoti.NewVotiRow
 
                 rowVoti.Collegio = "Cosenza"
                 rowVoti.Lista_o_Candidato = nomePresidente
@@ -240,7 +240,7 @@ Public Class Scrutinio
 
     Private Function GetGruppi(ByVal IDConsultazione As Integer) As DataRow()
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_gruppoTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
             Dim rows As DataRow() = table.Select("id_cons=" + IDConsultazione.ToString())
             Return rows
@@ -255,16 +255,16 @@ Public Class Scrutinio
 
     Private Sub ShowDatiListe(ByVal IDConsultazione As Integer, consultazione As String)
         Try
-            Dim tableVoti As New EAPVoti2.VotiDataTable
+            Dim tableVoti As New EAPModel.VotiDataTable
 
             Dim liste As DataRow() = GetListe(IDConsultazione)
             Dim sezioniIDs = GetSezioniIDs(IDConsultazione, consultazione)
-            For Each lista As EAPVoti.soraldo_ele_listaRow In liste
+            For Each lista As EAPModel.soraldo_ele_listaRow In liste
                 Dim nomeLista As String = lista.descrizione
                 Dim numero As Integer = lista.num_lista
                 Dim IDLista As Integer = lista.id_lista
                 Dim votiValidi As Integer = GetVotiValidiLista(IDConsultazione, IDLista, sezioniIDs)
-                Dim rowVoti As EAPVoti2.VotiRow = tableVoti.NewVotiRow
+                Dim rowVoti As EAPModel.VotiRow = tableVoti.NewVotiRow
 
                 rowVoti.Collegio = "Cosenza"
                 rowVoti.Lista_o_Candidato = nomeLista
@@ -286,10 +286,10 @@ Public Class Scrutinio
 
     Private Sub ShowQuadratureSezioneBallottaggio(ByVal IDConsultazione As Integer, consultazione As String)
         Try
-            Dim table As New EAPVoti2.QuadratureSezioniBallottaggioDataTable
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim table As New EAPModel.QuadratureSezioniBallottaggioDataTable
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazione(IDConsultazione)
-            For Each rowSezione As EAP2.soraldo_ele_sezioniRow In tableSezioni
+            For Each rowSezione As EAPModel.soraldo_ele_sezioniRow In tableSezioni
                 Dim IDSezione = rowSezione.id_sez
                 Dim row = table.NewQuadratureSezioniBallottaggioRow
                 row.Sezione = rowSezione.num_sez
@@ -320,10 +320,10 @@ Public Class Scrutinio
 
     Private Sub ShowQuadratureSezioneReferendum(ByVal IDConsultazione As Integer, consultazione As String)
         Try
-            Dim table As New EAPVotiReferendum.QuadratureSezioniReferendumDataTable
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim table As New EAPModel.QuadratureSezioniReferendumDataTable
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazione(IDConsultazione)
-            For Each rowSezione As EAP2.soraldo_ele_sezioniRow In tableSezioni
+            For Each rowSezione As EAPModel.soraldo_ele_sezioniRow In tableSezioni
                 Dim IDSezione = rowSezione.id_sez
                 Dim row = table.NewQuadratureSezioniReferendumRow
                 row.Sezione = rowSezione.num_sez
@@ -367,10 +367,10 @@ Public Class Scrutinio
 
     Private Sub ShowQuadratureSezione(ByVal IDConsultazione As Integer, consultazione As String)
         Try
-            Dim table As New EAPVoti2.QuadratureSezioniDataTable
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim table As New EAPModel.QuadratureSezioniDataTable
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazione(IDConsultazione)
-            For Each rowSezione As EAP2.soraldo_ele_sezioniRow In tableSezioni
+            For Each rowSezione As EAPModel.soraldo_ele_sezioniRow In tableSezioni
                 Dim IDSezione = rowSezione.id_sez
                 Dim row = table.NewQuadratureSezioniRow
                 row.Collegio = "Cosenza"
@@ -406,7 +406,7 @@ Public Class Scrutinio
     Public Function GetStatoSezione(IDConsultazione As Integer, IDSezione As Integer, consultazione As String) As String
         Try
             Dim stato = ""
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             If (tableSezioni.Count >= 1) Then
                 Dim rowSezione = tableSezioni(0)
@@ -466,7 +466,7 @@ Public Class Scrutinio
     Private Function GetStatoSezioneBallottaggio(IDConsultazione As Integer, IDSezione As Integer, consultazione As String) As String
         Try
             Dim stato = ""
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             If (tableSezioni.Count >= 1) Then
                 Dim rowSezione = tableSezioni(0)
@@ -499,7 +499,7 @@ Public Class Scrutinio
                 If (stato = "" And F > 0) Then
                     stato = "OK"
                 End If
-               
+
 
                 'sezione speciale 32
                 Dim numeroSezione = GetNumeroSezione(IDConsultazione, IDSezione)
@@ -522,7 +522,7 @@ Public Class Scrutinio
     Public Function GetStatoSezioneReferendum(IDConsultazione As Integer, IDSezione As Integer, consultazione As String) As String
         Try
             Dim stato = ""
-            Dim adapterSezioni As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             If (tableSezioni.Count >= 1) Then
                 Dim rowSezione = tableSezioni(0)
@@ -591,7 +591,7 @@ Public Class Scrutinio
 
     Public Function GetIDSezione(IDConsultazione As Integer, numeroSezione As Integer) As Integer
         Try
-            Dim adapter As New EAPVotiReferendumTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneNumeroSezione(IDConsultazione, numeroSezione)
             If (table.Count >= 1) Then
                 Dim row = table(0)
@@ -608,10 +608,10 @@ Public Class Scrutinio
 
     Private Function GetNumeroSezione(IDConsultazione As Integer, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             If (table.Count >= 1) Then
-                Dim row As EAP2.soraldo_ele_sezioniRow = table(0)
+                Dim row As EAPModel.soraldo_ele_sezioniRow = table(0)
                 Dim numeroSezione = row.num_sez
                 Return numeroSezione
 
@@ -626,10 +626,10 @@ Public Class Scrutinio
 
     Private Function GetVotiSoloGruppoTotale(IDConsultazione As Integer, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_voti_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_gruppoTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim voti As Integer = 0
-            For Each row As EAP2.soraldo_ele_voti_gruppoRow In table
+            For Each row As EAPModel.soraldo_ele_voti_gruppoRow In table
                 voti += row.lista
             Next
             Return voti
@@ -644,10 +644,10 @@ Public Class Scrutinio
 
     Private Function GetVotiGruppoTotale(IDConsultazione As Integer, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_voti_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_gruppoTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim voti As Integer = 0
-            For Each row As EAP2.soraldo_ele_voti_gruppoRow In table
+            For Each row As EAPModel.soraldo_ele_voti_gruppoRow In table
                 voti += row.voti
             Next
             Return voti
@@ -660,9 +660,9 @@ Public Class Scrutinio
 
     End Function
 
-    Private Function GetVotiReferendum(IDConsultazione As Integer, IDSezione As Integer) As EAPVotiReferendum.soraldo_ele_voti_refRow
+    Private Function GetVotiReferendum(IDConsultazione As Integer, IDSezione As Integer) As EAPModel.soraldo_ele_voti_refRow
         Try
-            Dim adapter As New EAPVotiReferendumTableAdapters.soraldo_ele_voti_refTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_refTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             If (table.Count >= 1) Then
                 Dim row = table(0)
@@ -679,10 +679,10 @@ Public Class Scrutinio
 
     Private Function GetVotiReferendumTotale(IDConsultazione As Integer, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAPVotiReferendumTableAdapters.soraldo_ele_voti_refTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_refTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim voti As Integer = 0
-            For Each row As EAPVotiReferendum.soraldo_ele_voti_refRow In table
+            For Each row As EAPModel.soraldo_ele_voti_refRow In table
                 voti += row.si + row.no
             Next
             Return voti
@@ -697,10 +697,10 @@ Public Class Scrutinio
 
     Private Function GetVotiListeTotale(IDConsultazione As Integer, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_voti_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim voti As Integer = 0
-            For Each row As EAPVoti2.soraldo_ele_voti_listaRow In table
+            For Each row As EAPModel.soraldo_ele_voti_listaRow In table
                 voti += row.voti
             Next
             Return voti
@@ -716,7 +716,7 @@ Public Class Scrutinio
 
     Private Function GetCandidati(ByVal IDConsultazione As Integer, ByVal IDLista As Integer) As DataRow()
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_candidatiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_candidatiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDLista(IDConsultazione, IDLista)
             Dim rows As DataRow() = table.Select("id_cons=" + IDConsultazione.ToString() + " and id_lista=" + IDLista.ToString(), "num_cand")
             Return rows
@@ -731,7 +731,7 @@ Public Class Scrutinio
 
     Private Function GetIDLista(ByVal IDConsultazione As Integer, ByVal descrizione As String) As Integer
         Try
-            Dim lista As EAPVoti.soraldo_ele_listaRow = GetLista(IDConsultazione, descrizione)
+            Dim lista As EAPModel.soraldo_ele_listaRow = GetLista(IDConsultazione, descrizione)
             If (Not lista Is Nothing) Then
                 Dim IDLista As Integer = lista.id_lista
                 Return IDLista
@@ -749,7 +749,7 @@ Public Class Scrutinio
         Try
             Dim voti As DataTable = GetVotiLista(IDConsultazione, IDLista)
             Dim votiValidi As Integer = 0
-            For Each voto As EAPVoti2.soraldo_ele_voti_listaRow In voti.Rows
+            For Each voto As EAPModel.soraldo_ele_voti_listaRow In voti.Rows
                 If (sezioniIDs.Contains(voto.id_sez)) Then
                     votiValidi += voto.voti
                 End If
@@ -764,28 +764,28 @@ Public Class Scrutinio
 
     End Function
 
-    Private Function GetVotiContestatiLista(ByVal IDConsultazione As Integer, ByVal IDLista As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
-        Try
-            Dim voti As DataTable = GetVotiLista(IDConsultazione, IDLista)
-            Dim votiContestati As Integer = 0
-            For Each voto As EAPVoti.soraldo_ele_voti_listaRow In voti.Rows
-                votiContestati += voto.cont
-            Next
-            Return votiContestati
+    'Private Function GetVotiContestatiLista(ByVal IDConsultazione As Integer, ByVal IDLista As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
+    '    Try
+    '        Dim voti As DataTable = GetVotiLista(IDConsultazione, IDLista)
+    '        Dim votiContestati As Integer = 0
+    '        For Each voto As EAPModel.soraldo_ele_voti_listaRow In voti.Rows
+    '            votiContestati += voto.cont
+    '        Next
+    '        Return votiContestati
 
-        Catch ex As Exception
-            UtilityContainer.ErrorLog(ex)
+    '    Catch ex As Exception
+    '        UtilityContainer.ErrorLog(ex)
 
-        End Try
-        Return -1
+    '    End Try
+    '    Return -1
 
-    End Function
+    'End Function
 
     Private Function GetVotiValidiCandidato(ByVal IDConsultazione As Integer, ByVal IDCandidato As Integer, sezioniIDs As ArrayList) As Integer
         Try
             Dim voti As DataTable = GetVotiCandidato(IDConsultazione, IDCandidato)
             Dim votiValidi As Integer = 0
-            For Each voto As EAPVoti2.soraldo_ele_voti_candidatiRow In voti.Rows
+            For Each voto As EAPModel.soraldo_ele_voti_candidatiRow In voti.Rows
                 Dim IDSezione = voto.id_sez
                 If (sezioniIDs.Contains(IDSezione)) Then
                     votiValidi += voto.voti
@@ -805,7 +805,7 @@ Public Class Scrutinio
         Try
             Dim voti As DataTable = GetVotiGruppo(IDConsultazione, IDGruppo)
             Dim votiValidi As Integer = 0
-            For Each voto As EAPVoti2.soraldo_ele_voti_gruppoRow In voti.Rows
+            For Each voto As EAPModel.soraldo_ele_voti_gruppoRow In voti.Rows
                 Dim IDSezione As Integer = voto.id_sez
                 If (sezioniIDs.Contains(IDSezione)) Then
                     votiValidi += voto.voti
@@ -822,50 +822,50 @@ Public Class Scrutinio
 
     End Function
 
-    Private Function GetVotiContestatiCandidato(ByVal IDConsultazione As Integer, ByVal IDCandidato As Integer, sezioniIDs As ArrayList) As Integer
-        Try
-            Dim voti As DataTable = GetVotiCandidato(IDConsultazione, IDCandidato)
-            Dim votiContestati As Integer = 0
-            For Each voto As EAPVoti.soraldo_ele_voti_candidatiRow In voti.Rows
-                Dim IDSezione = voto.id_sez
-                If (sezioniIDs.Contains(IDSezione)) Then
-                    votiContestati += voto.cont
-                End If
-            Next
-            Return votiContestati
+    'Private Function GetVotiContestatiCandidato(ByVal IDConsultazione As Integer, ByVal IDCandidato As Integer, sezioniIDs As ArrayList) As Integer
+    '    Try
+    '        Dim voti As DataTable = GetVotiCandidato(IDConsultazione, IDCandidato)
+    '        Dim votiContestati As Integer = 0
+    '        For Each voto As EAPModel.soraldo_ele_voti_candidatiRow In voti.Rows
+    '            Dim IDSezione = voto.id_sez
+    '            If (sezioniIDs.Contains(IDSezione)) Then
+    '                votiContestati += voto.cont
+    '            End If
+    '        Next
+    '        Return votiContestati
 
-        Catch ex As Exception
-            UtilityContainer.ErrorLog(ex)
+    '    Catch ex As Exception
+    '        UtilityContainer.ErrorLog(ex)
 
-        End Try
-        Return -1
+    '    End Try
+    '    Return -1
 
-    End Function
+    'End Function
 
-    Private Function GetVotiContestatiGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
-        Try
-            Dim voti As DataTable = GetVotiGruppo(IDConsultazione, IDGruppo)
-            Dim votiContestati As Integer = 0
-            For Each voto As EAPVoti.soraldo_ele_voti_gruppoRow In voti.Rows
-                Dim IDSezione As Integer = voto.id_sez
-                votiContestati += voto.cont
+    'Private Function GetVotiContestatiGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer, Optional ByVal IDCollegio As Integer = -1) As Integer
+    '    Try
+    '        Dim voti As DataTable = GetVotiGruppo(IDConsultazione, IDGruppo)
+    '        Dim votiContestati As Integer = 0
+    '        For Each voto As EAPModel.soraldo_ele_voti_gruppoRow In voti.Rows
+    '            Dim IDSezione As Integer = voto.id_sez
+    '            votiContestati += voto.cont
 
-            Next
-            Return votiContestati
+    '        Next
+    '        Return votiContestati
 
-        Catch ex As Exception
-            UtilityContainer.ErrorLog(ex)
+    '    Catch ex As Exception
+    '        UtilityContainer.ErrorLog(ex)
 
-        End Try
-        Return -1
+    '    End Try
+    '    Return -1
 
-    End Function
+    'End Function
 
     Private Function GetVotiSoloGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer, sezioniIDs As ArrayList, Optional ByVal IDCollegio As Integer = -1) As Integer
         Try
             Dim voti As DataTable = GetVotiGruppo(IDConsultazione, IDGruppo)
             Dim votiSoloGruppo As Integer = 0
-            For Each voto As EAPVoti2.soraldo_ele_voti_gruppoRow In voti.Rows
+            For Each voto As EAPModel.soraldo_ele_voti_gruppoRow In voti.Rows
                 Dim IDSezione As Integer = voto.id_sez
                 If (sezioniIDs.Contains(IDSezione)) Then
                     votiSoloGruppo += voto.lista
@@ -885,7 +885,7 @@ Public Class Scrutinio
 
     Private Function GetVotiLista(ByVal IDConsultazione As Integer, ByVal IDLista As Integer) As DataTable
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_voti_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDLista(IDConsultazione, IDLista)
             Return table
 
@@ -899,7 +899,7 @@ Public Class Scrutinio
 
     Private Function GetVotiCandidato(ByVal IDConsultazione As Integer, ByVal IDCandidato As Integer) As DataTable
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_voti_candidatiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_candidatiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDCandidato(IDConsultazione, IDCandidato)
             Return table
 
@@ -913,7 +913,7 @@ Public Class Scrutinio
 
     Private Function GetVotiGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer) As DataTable
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_voti_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_gruppoTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDGruppo(IDConsultazione, IDGruppo)
             Return table
 
@@ -928,11 +928,11 @@ Public Class Scrutinio
     Public Function GetIDConsultazione(ByVal descrizione As String) As Integer
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(descrizione)
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_cons_comuneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_cons_comuneTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             Dim consultazioni As DataRow() = table.Select("id_cons_gen=" + IDConsultazioneGenerale.ToString)
             If (consultazioni.Length >= 1) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_cons_comuneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_cons_comuneRow = consultazioni(0)
                 Dim IDConsultazione As Integer = consultazione.id_cons
                 Return IDConsultazione
 
@@ -948,7 +948,7 @@ Public Class Scrutinio
 
     Public Function GetConsultazione(ByVal IDConsultazioneGenerale As Integer) As String
         Try
-            Dim adapter As New EAPVotiReferendumTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             If (table.Count >= 1) Then
                 Dim row = table(0)
@@ -965,11 +965,11 @@ Public Class Scrutinio
 
     Private Function GetIDConsultazioneGenerale(ByVal descrizione As String) As Integer
         Try
-            Dim adapter As New EAPAffluenzeTableAdapters.soraldo_ele_consultazioneTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_consultazioneTableAdapter
             Dim table As DataTable = adapter.GetDataByDescrizione(descrizione)
             Dim consultazioni As DataRow() = table.Select("descrizione='" + descrizione + "'")
             If (consultazioni.Length >= 0) Then
-                Dim consultazione As EAPAffluenze.soraldo_ele_consultazioneRow = consultazioni(0)
+                Dim consultazione As EAPModel.soraldo_ele_consultazioneRow = consultazioni(0)
                 Dim IDConsultazioneGenerale As Integer = consultazione.id_cons_gen
                 Return IDConsultazioneGenerale
             End If
@@ -1012,7 +1012,7 @@ Public Class Scrutinio
 
     Private Function GetListe(ByVal IDConsultazione As Integer) As DataRow()
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
             Dim rows As DataRow() = table.Select("id_cons=" + IDConsultazione.ToString(), "num_lista")
             Return rows
@@ -1027,11 +1027,11 @@ Public Class Scrutinio
 
     Private Function GetLista(ByVal IDConsultazione As Integer, ByVal descrizione As String) As DataRow
         Try
-            Dim adapter As New EAPVotiTableAdapters.soraldo_ele_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneDescrizione(IDConsultazione, descrizione)
             Dim rows As DataRow() = table.Select("id_cons=" + IDConsultazione.ToString() + " and descrizione='" + descrizione + "'")
             If (rows.Length >= 1) Then
-                Dim row As EAPVoti.soraldo_ele_listaRow = rows(0)
+                Dim row As EAPModel.soraldo_ele_listaRow = rows(0)
                 Return row
             End If
 
@@ -1306,9 +1306,9 @@ Public Class Scrutinio
     Public Function GetSezioniIDs(ByVal IDConsultazione As Integer, consultazione As String) As ArrayList
         Try
             Dim sezioniIDs As New ArrayList
-            Dim adapterSezioni As New EAPTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapterSezioni As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim tableSezioni = adapterSezioni.GetDataByIDConsultazione(IDConsultazione)
-            For Each rowSezione As EAP.soraldo_ele_sezioniRow In tableSezioni
+            For Each rowSezione As EAPModel.soraldo_ele_sezioniRow In tableSezioni
                 Dim IDSezione = rowSezione.id_sez
                 Dim stato = GetStatoSezione(IDConsultazione, IDSezione, consultazione)
                 If (stato = "OK") Then
@@ -1328,10 +1328,10 @@ Public Class Scrutinio
 
     Private Function GetIDGruppoFromNumero(ByVal IDConsultazione As Integer, ByVal numero As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_gruppoTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneNumero(IDConsultazione, numero)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAPVoti2.soraldo_ele_gruppoRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_gruppoRow = table.Rows(0)
                 Dim IDGruppo As Integer = row.id_gruppo
                 Return IDGruppo
             End If
@@ -1345,10 +1345,10 @@ Public Class Scrutinio
 
     Private Function GetIDListaFromNumero(ByVal IDConsultazione As Integer, ByVal numero As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneNumero(IDConsultazione, numero)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAPVoti2.soraldo_ele_listaRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_listaRow = table.Rows(0)
                 Dim IDLista As Integer = row.id_lista
                 Return IDLista
             End If
@@ -1362,10 +1362,10 @@ Public Class Scrutinio
 
     Private Function GetIDCandidatoFromNumero(ByVal IDConsultazione As Integer, ByVal IDLista As Integer, ByVal numero As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_candidatiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_candidatiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDListaNumero(IDConsultazione, IDLista, numero)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAPVoti2.soraldo_ele_candidatiRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_candidatiRow = table.Rows(0)
                 Dim IDCandidato As Integer = row.id_cand
                 Return IDCandidato
             End If
@@ -1379,7 +1379,7 @@ Public Class Scrutinio
 
     Private Function GetNumeroListe(ByVal IDConsultazione As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_listaTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
             Dim numeroListe As Integer = table.Rows.Count
             Return numeroListe
@@ -1394,7 +1394,7 @@ Public Class Scrutinio
 
     Private Function GetNumeroGruppi(ByVal IDConsultazione As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_gruppoTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazione(IDConsultazione)
             Dim numeroGruppi As Integer = table.Rows.Count
             Return numeroGruppi
@@ -1409,7 +1409,7 @@ Public Class Scrutinio
 
     Private Function GetNumeroCandidati(ByVal IDConsultazione As Integer, ByVal IDLista As Integer) As Integer
         Try
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_candidatiTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_candidatiTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDLista(IDConsultazione, IDLista)
             Dim numeroCandidati As Integer = table.Rows.Count
             Return numeroCandidati
@@ -1485,7 +1485,7 @@ Public Class Scrutinio
 
     Private Function GetSchedeBianche(ByVal IDConsultazione As Integer, sezioniIDs As ArrayList) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim totale As Integer = 0
             For Each IDSezione As Integer In sezioniIDs
                 Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
@@ -1570,7 +1570,7 @@ Public Class Scrutinio
 
     Private Function GetSchedeNulle(ByVal IDConsultazione As Integer, sezioniIDs As ArrayList) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim totale As Integer = 0
             For Each IDSezione As Integer In sezioniIDs
                 Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
@@ -1591,7 +1591,7 @@ Public Class Scrutinio
 
     Private Function GetSchedeContestate(ByVal IDConsultazione As Integer, sezioniIDs As ArrayList) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
             Dim totale As Integer = 0
             For Each IDSezione As Integer In sezioniIDs
                 Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
@@ -1628,11 +1628,11 @@ Public Class Scrutinio
 
     Private Function GetVotantiMaschiSezione(ByVal IDConsultazione As Integer, ByVal consultazione As String, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_voti_parzialeTableAdapter
-            Dim voti As EAP2.soraldo_ele_voti_parzialeDataTable = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_parzialeTableAdapter
+            Dim voti As EAPModel.soraldo_ele_voti_parzialeDataTable = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim dataUltimaRilevazione As Date = GetDataUltimaRilevazione(IDConsultazione, consultazione)
             Dim totale As Integer = 0
-            For Each voto As EAP2.soraldo_ele_voti_parzialeRow In voti
+            For Each voto As EAPModel.soraldo_ele_voti_parzialeRow In voti
                 Dim data As DateTime = voto.data
                 If (dataUltimaRilevazione = data) Then
                     totale += voto.voti_uomini
@@ -1652,10 +1652,10 @@ Public Class Scrutinio
     Private Function GetDataUltimaRilevazione(ByVal IDConsultazione As Integer, ByVal consultazione As String) As Date
         Try
             Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(consultazione)
-            Dim adapter As New EAPVoti2TableAdapters.soraldo_ele_rilaffTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_rilaffTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneGenerale(IDConsultazioneGenerale)
             If (table.Rows.Count >= 1) Then
-                Dim row As EAPVoti2.soraldo_ele_rilaffRow = table.Rows(0)
+                Dim row As EAPModel.soraldo_ele_rilaffRow = table.Rows(0)
                 Dim dataUltimaRilevazione As Date = row.data
                 Return dataUltimaRilevazione
 
@@ -1687,11 +1687,11 @@ Public Class Scrutinio
 
     Private Function GetVotantiFemmineSezione(ByVal IDConsultazione As Integer, ByVal consultazione As String, IDSezione As Integer) As Integer
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_voti_parzialeTableAdapter
-            Dim voti As EAP2.soraldo_ele_voti_parzialeDataTable = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_parzialeTableAdapter
+            Dim voti As EAPModel.soraldo_ele_voti_parzialeDataTable = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim dataUltimaRilevazione As Date = GetDataUltimaRilevazione(IDConsultazione, consultazione)
             Dim totale As Integer = 0
-            For Each voto As EAP2.soraldo_ele_voti_parzialeRow In voti
+            For Each voto As EAPModel.soraldo_ele_voti_parzialeRow In voti
                 Dim data As DateTime = voto.data
                 If (dataUltimaRilevazione = data) Then
                     totale += voto.voti_donne

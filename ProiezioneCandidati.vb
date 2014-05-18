@@ -35,7 +35,7 @@ Public Class ProiezioneCandidati
 
     Private Sub LoadCandidati()
         Try
-            Dim adapter As New EAP2TableAdapters.soraldo_ele_gruppoTableAdapter
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_gruppoTableAdapter
             Dim table = adapter.GetDataByIDConsultazione(IDConsultazione)
             panelCandidati.Controls.Clear()
             For Each row In table
@@ -58,7 +58,7 @@ Public Class ProiezioneCandidati
             Dim spoglio As New Scrutinio()
             Dim sezioniIDs = spoglio.GetSezioniIDs(IDConsultazione, consultazione)
             Dim votiTotali = spoglio.GetVotiValidi(IDConsultazione, sezioniIDs)
-            Dim votazioni As New EAP2.VotazioniDataTable
+            Dim votazioni As New EAPModel.VotazioniDataTable
             For Each candidato As ProiezioneCandidatoRow In panelCandidati.Controls
                 Dim IDGruppo = candidato.IDGruppo
                 Dim voti = spoglio.GetVotiValidiGruppo(IDConsultazione, IDGruppo, sezioniIDs)
@@ -70,8 +70,8 @@ Public Class ProiezioneCandidati
             Next
 
             Dim votiTop = votazioni.Select(Nothing, "[voti] desc")
-            Dim votoTop1 As EAP2.VotazioniRow = votiTop(0)
-            'Dim votoTop2 As EAP2.VotazioniRow = votiTop(1)
+            Dim votoTop1 As EAPModel.VotazioniRow = votiTop(0)
+            'Dim votoTop2 As EAPModel.VotazioniRow = votiTop(1)
 
             For Each candidato As ProiezioneCandidatoRow In panelCandidati.Controls
                 Dim voti As Integer = candidato.Voti
