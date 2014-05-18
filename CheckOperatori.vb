@@ -212,7 +212,7 @@ Public Class CheckOperatori
                 adapter.Update(row)
             Next
 
-            Gizmox.WebGUI.Forms.MessageBox.Show("Azzeramento flag operatori completato con successo.", "Azzeramento flag accesso", Gizmox.WebGUI.Forms.MessageBoxButtons.OK, Gizmox.WebGUI.Forms.MessageBoxIcon.Information)
+            MessageBoxShow("Azzeramento flag operatori completato con successo.")
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -238,5 +238,29 @@ Public Class CheckOperatori
             UtilityContainer.ErrorLog(ex)
 
         End Try
+    End Sub
+
+    Private Sub timerMessage_Tick(sender As Object, e As EventArgs) Handles timerMessage.Tick
+        Try
+            lblMessage.Text = ""
+            lblMessage.Visible = False
+            timerMessage.Stop()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
+    Private Sub MessageBoxShow(message As String)
+        Try
+            lblMessage.Text = message
+            lblMessage.Visible = True
+            timerMessage.Start()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
     End Sub
 End Class

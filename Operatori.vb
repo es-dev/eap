@@ -116,7 +116,7 @@ Public Class Operatori
                         adapter.Update(row)
                     End If
                 Next
-                Gizmox.WebGUI.Forms.MessageBox.Show("Tutti gli operatori sono stati ABILITATI.", "EAP Elezioni Online", Gizmox.WebGUI.Forms.MessageBoxButtons.OK, Gizmox.WebGUI.Forms.MessageBoxIcon.Information)
+                MessageBoxShow("Tutti gli operatori sono stati ABILITATI.")
             End If
 
 
@@ -139,7 +139,7 @@ Public Class Operatori
                         adapter.Update(row)
                     End If
                 Next
-                Gizmox.WebGUI.Forms.MessageBox.Show("Tutti gli operatori sono stati DISABILITATI.", "EAP Elezioni Online", Gizmox.WebGUI.Forms.MessageBoxButtons.OK, Gizmox.WebGUI.Forms.MessageBoxIcon.Stop)
+                MessageBoxShow("Tutti gli operatori sono stati DISABILITATI.")
             End If
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -321,4 +321,28 @@ Public Class Operatori
         Return False
 
     End Function
+
+    Private Sub timerMessage_Tick(sender As Object, e As EventArgs) Handles timerMessage.Tick
+        Try
+            lblMessage.Text = ""
+            lblMessage.Visible = False
+            timerMessage.Stop()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
+    Private Sub MessageBoxShow(message As String)
+        Try
+            lblMessage.Text = message
+            lblMessage.Visible = True
+            timerMessage.Start()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
 End Class

@@ -19,6 +19,7 @@ Partial Class Affluenze
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Affluenze))
         Me.Panel1 = New Gizmox.WebGUI.Forms.Panel()
         Me.Label8 = New Gizmox.WebGUI.Forms.Label()
@@ -39,9 +40,13 @@ Partial Class Affluenze
         Me.Label9 = New Gizmox.WebGUI.Forms.Label()
         Me.Panel2 = New Gizmox.WebGUI.Forms.Panel()
         Me.grid = New Gizmox.WebGUI.Forms.DataGridView()
-        Me.timerSync = New Gizmox.WebGUI.Forms.Timer()
+        Me.timerSync = New Gizmox.WebGUI.Forms.Timer(Me.components)
+        Me.lblMessage = New Gizmox.WebGUI.Forms.Label()
+        Me.timerMessage = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -153,7 +158,6 @@ Partial Class Affluenze
         Me.cboConsultazioni.DropDownStyle = Gizmox.WebGUI.Forms.ComboBoxStyle.DropDownList
         Me.cboConsultazioni.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboConsultazioni.Location = New System.Drawing.Point(110, 94)
-        Me.cboConsultazioni.MaxDropDownItems = 8
         Me.cboConsultazioni.Name = "cboConsultazioni"
         Me.cboConsultazioni.Size = New System.Drawing.Size(251, 24)
         Me.cboConsultazioni.TabIndex = 7
@@ -197,7 +201,6 @@ Partial Class Affluenze
         Me.cboCollegio.DropDownStyle = Gizmox.WebGUI.Forms.ComboBoxStyle.DropDownList
         Me.cboCollegio.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCollegio.Location = New System.Drawing.Point(110, 124)
-        Me.cboCollegio.MaxDropDownItems = 8
         Me.cboCollegio.Name = "cboCollegio"
         Me.cboCollegio.Size = New System.Drawing.Size(251, 24)
         Me.cboCollegio.TabIndex = 7
@@ -218,7 +221,7 @@ Partial Class Affluenze
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(800, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
@@ -233,6 +236,7 @@ Partial Class Affluenze
         '
         Me.Panel2.BackColor = System.Drawing.Color.Lavender
         Me.Panel2.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.lblMessage)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Dock = Gizmox.WebGUI.Forms.DockStyle.Bottom
@@ -248,7 +252,6 @@ Partial Class Affluenze
         Me.grid.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
             Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
             Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
-        Me.grid.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
         Me.grid.ColumnHeadersHeightSizeMode = Gizmox.WebGUI.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grid.ItemsPerPage = 200
         Me.grid.Location = New System.Drawing.Point(9, 162)
@@ -262,6 +265,22 @@ Partial Class Affluenze
         '
         Me.timerSync.Enabled = True
         Me.timerSync.Interval = 60000
+        '
+        'lblMessage
+        '
+        Me.lblMessage.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
+        Me.lblMessage.ForeColor = System.Drawing.Color.Red
+        Me.lblMessage.Location = New System.Drawing.Point(406, 9)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(490, 27)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Visible = False
+        '
+        'timerMessage
+        '
+        Me.timerMessage.Interval = 10000
         '
         'Affluenze
         '
@@ -281,9 +300,11 @@ Partial Class Affluenze
         Me.Controls.Add(Me.Panel1)
         Me.Size = New System.Drawing.Size(906, 548)
         Me.Text = "EAP - Elezioni OnLine - Homepage"
-        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerSync}
+        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerSync, Me.timerMessage}
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -307,5 +328,7 @@ Partial Class Affluenze
     Friend WithEvents Panel2 As Gizmox.WebGUI.Forms.Panel
     Friend WithEvents grid As Gizmox.WebGUI.Forms.DataGridView
     Friend WithEvents timerSync As Gizmox.WebGUI.Forms.Timer
+    Friend WithEvents lblMessage As Gizmox.WebGUI.Forms.Label
+    Friend WithEvents timerMessage As Gizmox.WebGUI.Forms.Timer
 
 End Class

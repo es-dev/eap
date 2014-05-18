@@ -152,27 +152,53 @@ Public Class MonitorSezioni
 
     Private Sub LoadStatoReports()
         Try
-            Dim scrutinioSezioni As New Scrutinio
             listReports.Items.Clear()
             For Each IDConsultazione In consultazioni.Keys
-                Dim consultazione = consultazioni(IDConsultazione)
-                Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
-
-                Dim templateName As String = IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
-                Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
-                Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xls"
-                scrutinioSezioni.Scrutinio2013(consultazione, pathRoot, fileTemplate, fileName)
-
-                listReports.Items.Add(consultazione + " | Report: " + fileName)
-
+                LoadStatoReportScrutini(IDConsultazione)
+                LoadStatoReportPreferenze(IDConsultazione)
             Next
             lblLastUpdate.Text = "( Reports ultimo aggiornamento --> " + Now.ToString("dd/MM/yyyy HH:mm:ss") + " )"
-
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
 
         End Try
+    End Sub
+
+    Private Sub LoadStatoReportScrutini(IDConsultazione As Integer)
+        Try
+            Dim scrutinioSezioni As New Scrutinio
+            Dim consultazione = consultazioni(IDConsultazione)
+            Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
+            Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014"
+            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
+            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xls"
+            scrutinioSezioni.Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+
+            listReports.Items.Add(consultazione + " | Report: " + fileName)
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
+    Private Sub LoadStatoReportPreferenze(IDConsultazione As Integer)
+        Try
+            Dim scrutinioSezioni As New Scrutinio
+            Dim consultazione = consultazioni(IDConsultazione)
+            Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
+            Dim templateName As String = "Scrutini_Preferenze_Europee_F2003_2014"
+            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
+            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xls"
+            scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
+
+            listReports.Items.Add(consultazione + " | Report: " + fileName)
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
     End Sub
 
     Private Sub LoadStatoSezioni()

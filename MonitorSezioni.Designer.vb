@@ -47,11 +47,11 @@ Partial Class MonitorSezioni
         Me.Label10 = New Gizmox.WebGUI.Forms.Label()
         Me.Label9 = New Gizmox.WebGUI.Forms.Label()
         Me.Panel2 = New Gizmox.WebGUI.Forms.Panel()
+        Me.cmdPubblica = New Gizmox.WebGUI.Forms.Button()
         Me.cmdLogout = New Gizmox.WebGUI.Forms.Button()
         Me.cmdIndietro = New Gizmox.WebGUI.Forms.Button()
         Me.chkTimerSync = New Gizmox.WebGUI.Forms.CheckBox()
         Me.timerSync = New Gizmox.WebGUI.Forms.Timer(Me.components)
-        Me.cmdPubblica = New Gizmox.WebGUI.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -146,7 +146,6 @@ Partial Class MonitorSezioni
             Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
         Me.listStatoConsultazioni.Location = New System.Drawing.Point(10, 20)
         Me.listStatoConsultazioni.Name = "listStatoConsultazioni"
-        Me.listStatoConsultazioni.SelectionMode = Gizmox.WebGUI.Forms.SelectionMode.One
         Me.listStatoConsultazioni.Size = New System.Drawing.Size(346, 82)
         Me.listStatoConsultazioni.Sorted = True
         Me.listStatoConsultazioni.TabIndex = 0
@@ -172,7 +171,6 @@ Partial Class MonitorSezioni
             Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
         Me.listReports.Location = New System.Drawing.Point(13, 20)
         Me.listReports.Name = "listReports"
-        Me.listReports.SelectionMode = Gizmox.WebGUI.Forms.SelectionMode.One
         Me.listReports.Size = New System.Drawing.Size(428, 82)
         Me.listReports.Sorted = True
         Me.listReports.TabIndex = 0
@@ -281,7 +279,7 @@ Partial Class MonitorSezioni
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(516, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
@@ -306,6 +304,19 @@ Partial Class MonitorSezioni
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(853, 46)
         Me.Panel2.TabIndex = 1
+        '
+        'cmdPubblica
+        '
+        Me.cmdPubblica.Anchor = CType((Gizmox.WebGUI.Forms.AnchorStyles.Bottom Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
+        Me.cmdPubblica.BackColor = System.Drawing.Color.Ivory
+        Me.cmdPubblica.CustomStyle = "F"
+        Me.cmdPubblica.FlatStyle = Gizmox.WebGUI.Forms.FlatStyle.Flat
+        Me.cmdPubblica.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.cmdPubblica.Location = New System.Drawing.Point(489, 11)
+        Me.cmdPubblica.Name = "cmdPubblica"
+        Me.cmdPubblica.Size = New System.Drawing.Size(101, 23)
+        Me.cmdPubblica.TabIndex = 4
+        Me.cmdPubblica.Text = "Pubblica"
         '
         'cmdLogout
         '
@@ -336,28 +347,15 @@ Partial Class MonitorSezioni
         Me.chkTimerSync.Anchor = CType((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
         Me.chkTimerSync.Checked = True
         Me.chkTimerSync.CheckState = Gizmox.WebGUI.Forms.CheckState.Checked
-        Me.chkTimerSync.Location = New System.Drawing.Point(660, 118)
+        Me.chkTimerSync.Location = New System.Drawing.Point(655, 118)
         Me.chkTimerSync.Name = "chkTimerSync"
-        Me.chkTimerSync.Size = New System.Drawing.Size(79, 17)
+        Me.chkTimerSync.Size = New System.Drawing.Size(85, 17)
         Me.chkTimerSync.TabIndex = 10
         Me.chkTimerSync.Text = "Timer Sync"
         '
         'timerSync
         '
         Me.timerSync.Interval = 1000
-        '
-        'cmdPubblica
-        '
-        Me.cmdPubblica.Anchor = CType((Gizmox.WebGUI.Forms.AnchorStyles.Bottom Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
-        Me.cmdPubblica.BackColor = System.Drawing.Color.Ivory
-        Me.cmdPubblica.CustomStyle = "F"
-        Me.cmdPubblica.FlatStyle = Gizmox.WebGUI.Forms.FlatStyle.Flat
-        Me.cmdPubblica.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.cmdPubblica.Location = New System.Drawing.Point(489, 11)
-        Me.cmdPubblica.Name = "cmdPubblica"
-        Me.cmdPubblica.Size = New System.Drawing.Size(101, 23)
-        Me.cmdPubblica.TabIndex = 4
-        Me.cmdPubblica.Text = "Pubblica"
         '
         'MonitorSezioni
         '
@@ -372,7 +370,6 @@ Partial Class MonitorSezioni
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = Gizmox.WebGUI.Forms.FormBorderStyle.Sizable
         Me.Size = New System.Drawing.Size(853, 631)
         Me.Text = "MonitorSezioni"
         Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerRefresh, Me.timerSync}
