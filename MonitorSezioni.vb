@@ -259,9 +259,11 @@ Public Class MonitorSezioni
 
     Private Sub lnkReports_LinkClicked(sender As System.Object, e As Gizmox.WebGUI.Forms.LinkLabelLinkClickedEventArgs) Handles lnkReports.LinkClicked
         Try
-            Dim root = UtilityContainer.GetRootUrl(Context)
-            Dim url = root + "/resources/reports"
-            Link.Open(url)
+            'Dim root = UtilityContainer.GetRootUrl(Context)
+            'Dim url = root + "/resources/reports"
+            'Link.Open(url)
+            Dim _reports = New Reports
+            _reports.Show()
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)

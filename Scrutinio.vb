@@ -2204,7 +2204,7 @@ Public Class Scrutinio
             'Dim url = root + "/resources/reports"
             'Link.Open(url)
             Dim _reports = New Reports
-            _reports.ShowDialog()
+            _reports.Show()
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
