@@ -38,6 +38,8 @@ Partial Class CheckOperatori
         Me.Label9 = New Gizmox.WebGUI.Forms.Label()
         Me.Panel2 = New Gizmox.WebGUI.Forms.Panel()
         Me.timerCheck = New Gizmox.WebGUI.Forms.Timer(Me.components)
+        Me.lblMessage = New Gizmox.WebGUI.Forms.Label()
+        Me.timerMessage = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -205,7 +207,7 @@ Partial Class CheckOperatori
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(800, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
@@ -220,6 +222,7 @@ Partial Class CheckOperatori
         '
         Me.Panel2.BackColor = System.Drawing.Color.Lavender
         Me.Panel2.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.lblMessage)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Dock = Gizmox.WebGUI.Forms.DockStyle.Bottom
@@ -232,6 +235,22 @@ Partial Class CheckOperatori
         '
         Me.timerCheck.Enabled = True
         Me.timerCheck.Interval = 60000
+        '
+        'lblMessage
+        '
+        Me.lblMessage.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
+        Me.lblMessage.ForeColor = System.Drawing.Color.Red
+        Me.lblMessage.Location = New System.Drawing.Point(401, 10)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(490, 27)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Visible = False
+        '
+        'timerMessage
+        '
+        Me.timerMessage.Interval = 10000
         '
         'CheckOperatori
         '
@@ -246,10 +265,9 @@ Partial Class CheckOperatori
         Me.Controls.Add(Me.cmdIndietro)
         Me.Controls.Add(Me.cmdLogout)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = Gizmox.WebGUI.Forms.FormBorderStyle.Sizable
         Me.Size = New System.Drawing.Size(906, 548)
         Me.Text = "EAP - Elezioni OnLine - Homepage"
-        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerCheck}
+        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerCheck, Me.timerMessage}
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grid, System.ComponentModel.ISupportInitialize).EndInit()
@@ -274,5 +292,7 @@ Partial Class CheckOperatori
     Friend WithEvents Label9 As Gizmox.WebGUI.Forms.Label
     Friend WithEvents Panel2 As Gizmox.WebGUI.Forms.Panel
     Friend WithEvents timerCheck As Gizmox.WebGUI.Forms.Timer
+    Friend WithEvents lblMessage As Gizmox.WebGUI.Forms.Label
+    Friend WithEvents timerMessage As Gizmox.WebGUI.Forms.Timer
 
 End Class

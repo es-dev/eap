@@ -19,6 +19,7 @@ Partial Class Operatori
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Operatori))
         Me.Panel1 = New Gizmox.WebGUI.Forms.Panel()
         Me.Label8 = New Gizmox.WebGUI.Forms.Label()
@@ -40,6 +41,8 @@ Partial Class Operatori
         Me.cmdCopiaCorpoElettorale = New Gizmox.WebGUI.Forms.Button()
         Me.cboConsultazioniDestinazione = New Gizmox.WebGUI.Forms.ComboBox()
         Me.Label5 = New Gizmox.WebGUI.Forms.Label()
+        Me.lblMessage = New Gizmox.WebGUI.Forms.Label()
+        Me.timerMessage = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -203,7 +206,7 @@ Partial Class Operatori
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(800, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
@@ -218,6 +221,7 @@ Partial Class Operatori
         '
         Me.Panel2.BackColor = System.Drawing.Color.Lavender
         Me.Panel2.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.lblMessage)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Dock = Gizmox.WebGUI.Forms.DockStyle.Bottom
@@ -276,6 +280,22 @@ Partial Class Operatori
         Me.Label5.Text = "Consultazione di destinazione (valida per copia permessi/corpo elettorale)"
         Me.Label5.Visible = False
         '
+        'lblMessage
+        '
+        Me.lblMessage.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
+        Me.lblMessage.ForeColor = System.Drawing.Color.Red
+        Me.lblMessage.Location = New System.Drawing.Point(403, 9)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(490, 27)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Visible = False
+        '
+        'timerMessage
+        '
+        Me.timerMessage.Interval = 10000
+        '
         'Operatori
         '
         Me.BackColor = System.Drawing.Color.White
@@ -295,6 +315,7 @@ Partial Class Operatori
         Me.Controls.Add(Me.Panel1)
         Me.Size = New System.Drawing.Size(906, 548)
         Me.Text = "EAP - Elezioni OnLine - Homepage"
+        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerMessage}
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
@@ -321,5 +342,7 @@ Partial Class Operatori
     Friend WithEvents cmdCopiaCorpoElettorale As Gizmox.WebGUI.Forms.Button
     Friend WithEvents cboConsultazioniDestinazione As Gizmox.WebGUI.Forms.ComboBox
     Friend WithEvents Label5 As Gizmox.WebGUI.Forms.Label
+    Friend WithEvents lblMessage As Gizmox.WebGUI.Forms.Label
+    Friend WithEvents timerMessage As Gizmox.WebGUI.Forms.Timer
 
 End Class

@@ -459,7 +459,7 @@ Public Class Affluenze
             excel.UnProtect()
             excel.Save()
 
-            MessageBox.Show("Export dati affluenze completato con successo")
+            MessageBoxShow("Export dati affluenze completato con successo")
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -490,13 +490,40 @@ Public Class Affluenze
 
     Private Sub lnkReports_LinkClicked(sender As System.Object, e As Gizmox.WebGUI.Forms.LinkLabelLinkClickedEventArgs) Handles lnkReports.LinkClicked
         Try
-            Dim root = UtilityContainer.GetRootUrl(Context)
-            Dim url = root + "/eap/resources/reports"
-            Link.Open(url)
+            'Dim root = UtilityContainer.GetRootUrl(Context)
+            'Dim url = root + "/resources/reports"
+            'Link.Open(url)
+            Dim _reports = New Reports
+            _reports.ShowDialog()
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
 
         End Try
     End Sub
+
+    Private Sub timerMessage_Tick(sender As Object, e As EventArgs) Handles timerMessage.Tick
+        Try
+            lblMessage.Text = ""
+            lblMessage.Visible = False
+            timerMessage.Stop()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
+    Private Sub MessageBoxShow(message As String)
+        Try
+            lblMessage.Text = message
+            lblMessage.Visible = True
+            timerMessage.Start()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
 End Class

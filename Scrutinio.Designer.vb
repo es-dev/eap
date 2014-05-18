@@ -60,6 +60,8 @@ Partial Class Scrutinio
         Me.grid = New Gizmox.WebGUI.Forms.DataGridView()
         Me.timerSync = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.cmdPubblica = New Gizmox.WebGUI.Forms.Button()
+        Me.lblMessage = New Gizmox.WebGUI.Forms.Label()
+        Me.timerMessage = New Gizmox.WebGUI.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -408,7 +410,7 @@ Partial Class Scrutinio
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(800, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
@@ -423,6 +425,7 @@ Partial Class Scrutinio
         '
         Me.Panel2.BackColor = System.Drawing.Color.Lavender
         Me.Panel2.BorderStyle = Gizmox.WebGUI.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.lblMessage)
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Dock = Gizmox.WebGUI.Forms.DockStyle.Bottom
@@ -465,6 +468,22 @@ Partial Class Scrutinio
         Me.cmdPubblica.TabIndex = 4
         Me.cmdPubblica.Text = "Pubblica"
         '
+        'lblMessage
+        '
+        Me.lblMessage.Anchor = CType((((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Bottom) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Left) _
+            Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
+        Me.lblMessage.ForeColor = System.Drawing.Color.Red
+        Me.lblMessage.Location = New System.Drawing.Point(462, 10)
+        Me.lblMessage.Name = "lblMessage"
+        Me.lblMessage.Size = New System.Drawing.Size(490, 27)
+        Me.lblMessage.TabIndex = 2
+        Me.lblMessage.Visible = False
+        '
+        'timerMessage
+        '
+        Me.timerMessage.Interval = 10000
+        '
         'Scrutinio
         '
         Me.BackColor = System.Drawing.Color.White
@@ -501,7 +520,7 @@ Partial Class Scrutinio
         Me.Location = New System.Drawing.Point(15, -91)
         Me.Size = New System.Drawing.Size(972, 573)
         Me.Text = "EAP - Elezioni OnLine - Homepage"
-        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerSync}
+        Me.RegisteredTimers = New Gizmox.WebGUI.Forms.Timer() {Me.timerSync, Me.timerMessage}
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
@@ -548,5 +567,7 @@ Partial Class Scrutinio
     Friend WithEvents lblSezioniValidate As Gizmox.WebGUI.Forms.Label
     Friend WithEvents timerSync As Gizmox.WebGUI.Forms.Timer
     Friend WithEvents cmdPubblica As Gizmox.WebGUI.Forms.Button
+    Friend WithEvents lblMessage As Gizmox.WebGUI.Forms.Label
+    Friend WithEvents timerMessage As Gizmox.WebGUI.Forms.Timer
 
 End Class

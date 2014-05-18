@@ -1051,7 +1051,7 @@ Public Class Scrutinio
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
             Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
-            UtilityContainer.MessageBox("Calcolo degli scrutini parziali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio parziale", MessageBoxIcon.Information)
+            MessageBoxShow("Calcolo degli scrutini parziali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
 
         Catch ex As Exception
@@ -1549,7 +1549,7 @@ Public Class Scrutinio
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
             Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
-            UtilityContainer.MessageBox("Calcolo degli scrutini finali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio finale", MessageBoxIcon.Information)
+            MessageBoxShow("Calcolo degli scrutini finali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -1791,7 +1791,7 @@ Public Class Scrutinio
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
             Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
-            UtilityContainer.MessageBox("Calcolo delle preferenze ai candidati completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.", "Scrutinio preferenze", MessageBoxIcon.Information)
+            MessageBoxShow("Calcolo delle preferenze ai candidati completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -2200,9 +2200,11 @@ Public Class Scrutinio
  
     Private Sub lnkReports_LinkClicked(sender As System.Object, e As Gizmox.WebGUI.Forms.LinkLabelLinkClickedEventArgs) Handles lnkReports.LinkClicked
         Try
-            Dim root = UtilityContainer.GetRootUrl(Context)
-            Dim url = root + "/resources/reports"
-            Link.Open(url)
+            'Dim root = UtilityContainer.GetRootUrl(Context)
+            'Dim url = root + "/resources/reports"
+            'Link.Open(url)
+            Dim _reports = New Reports
+            _reports.ShowDialog()
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -2215,7 +2217,7 @@ Public Class Scrutinio
             Dim root = UtilityContainer.GetRootPath(Context)
             Dim syncMySQL = SynchronizeMySQLServers(root)
 
-            UtilityContainer.MessageBox("La sincronizzazione dei servers MySQL è terminata con successo.", "Syncro MySQL")
+            MessageBoxShow("La sincronizzazione dei servers MySQL è terminata con successo.")
 
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
@@ -2270,4 +2272,28 @@ Public Class Scrutinio
         Return False
 
     End Function
+
+    Private Sub timerMessage_Tick(sender As Object, e As EventArgs) Handles timerMessage.Tick
+        Try
+            lblMessage.Text = ""
+            lblMessage.Visible = False
+            timerMessage.Stop()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
+
+    Private Sub MessageBoxShow(message As String)
+        Try
+            lblMessage.Text = message
+            lblMessage.Visible = True
+            timerMessage.Start()
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+        End Try
+
+    End Sub
 End Class

@@ -225,7 +225,7 @@ Partial Class eStart
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(800, 18)
         Me.Label10.TabIndex = 1
-        Me.Label10.Text = "Ing. Pasquale Iaquinta, Dott.ssa Tina De Simone, Alessandro Iaquinta (Matrixse)"
+        Me.Label10.Text = "Ing. Pasquale Iaquinta, Ing. Miriam Iusi"
         '
         'Label9
         '
