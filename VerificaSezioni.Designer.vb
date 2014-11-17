@@ -149,9 +149,9 @@ Partial Class VerificaSezioni
         Me.lblStatoSezione.Anchor = Gizmox.WebGUI.Forms.AnchorStyles.Top
         Me.lblStatoSezione.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatoSezione.ForeColor = System.Drawing.Color.Green
-        Me.lblStatoSezione.Location = New System.Drawing.Point(130, 328)
+        Me.lblStatoSezione.Location = New System.Drawing.Point(19, 328)
         Me.lblStatoSezione.Name = "lblStatoSezione"
-        Me.lblStatoSezione.Size = New System.Drawing.Size(581, 111)
+        Me.lblStatoSezione.Size = New System.Drawing.Size(861, 111)
         Me.lblStatoSezione.TabIndex = 2
         Me.lblStatoSezione.Text = "Stato validità della sezione"
         Me.lblStatoSezione.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -161,7 +161,7 @@ Partial Class VerificaSezioni
         Me.imgStatoSezione.Anchor = Gizmox.WebGUI.Forms.AnchorStyles.Top
         Me.imgStatoSezione.BackColor = System.Drawing.Color.Transparent
         Me.imgStatoSezione.Image = New Gizmox.WebGUI.Common.Resources.ImageResourceHandle(resources.GetString("imgStatoSezione.Image"))
-        Me.imgStatoSezione.Location = New System.Drawing.Point(361, 442)
+        Me.imgStatoSezione.Location = New System.Drawing.Point(361, 445)
         Me.imgStatoSezione.Name = "imgStatoSezione"
         Me.imgStatoSezione.Size = New System.Drawing.Size(110, 182)
         Me.imgStatoSezione.SizeMode = Gizmox.WebGUI.Forms.PictureBoxSizeMode.StretchImage
@@ -182,7 +182,6 @@ Partial Class VerificaSezioni
         Me.Controls.Add(Me.cboSezioni)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = Gizmox.WebGUI.Forms.FormBorderStyle.Sizable
         Me.Size = New System.Drawing.Size(889, 633)
         Me.Text = "VerificaSezioni"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

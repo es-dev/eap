@@ -426,16 +426,28 @@ Public Class Scrutinio
                 Dim E = rowSezione.nulli
                 Dim F = rowSezione.contestati
                 Dim H = rowSezione.voti_nulli
+                Dim SG = rowSezione.solo_gruppo
                 Dim G = C + D + E + F + H
                 If (G <> votanti) Then
-                    stato += " | ERRORE: Validi+Bianchi+Nulle+Contestati non coincide con i Votanti"
+                    stato += " | ERRORE: Validi+Bianchi+Nulle+Contestati non coincide con i Votanti (G=" + G.ToString() + " | Votanti=" + votanti.ToString() + ")"
+
                 End If
 
                 'Controllo A<>C-B, A=VotiTotaliListe
                 Dim A = GetVotiListeTotale(IDConsultazione, IDSezione)
-                If (A <> C) Then
-                    stato += " | ERRORE: Totale Voti Liste non coincide con Voti Validi"
+                If (A + SG <> C) Then
+                    stato += " | ERRORE: Totale Voti Liste non coincide con Voti Validi (A=" + (A + SG).ToString() + " | C=" + C.ToString() + ")"
                 End If
+
+                'Controllo gruppi C=voti validi, P=voti presidenti/sindaci
+                Dim P = GetVotiGruppoTotale(IDConsultazione, IDSezione)
+                If (C <> P) Then
+                    stato += " | ERRORE: Voti ai Presidenti non coincide con i Voti Validi (C=" + C.ToString() + " | P=" + P.ToString() + ")"
+                End If
+
+                'If (stato = "" And F > 0) Then
+                '    stato = "OK"
+                'End If
 
                 If (stato = "" And votanti > 0 And C > 0) Then
                     stato = "OK"

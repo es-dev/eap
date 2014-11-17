@@ -18393,8 +18393,8 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT data, id_cons_gen, orario FROM soraldo_ele_rilaff WHERE (id_cons_gen = @id"& _ 
-                "_cons_gen) ORDER BY data DESC"
+            Me._commandCollection(1).CommandText = "SELECT data, id_cons_gen, orario FROM soraldo_ele_rilaff WHERE (id_cons_gen = @id" & _
+                "_cons_gen) ORDER BY data, orario DESC"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons_gen"
