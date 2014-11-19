@@ -45,7 +45,7 @@ Public Class Scrutinio
                 If (Not visualizzazione Is Nothing) Then
                     Dim sezioniRilevate As Integer = 0
                     Dim IDConsultazioneGenerale As Integer = GetIDConsultazioneGenerale(consultazione)
-                    If (visualizzazione = "Candidati Sindaco") Then
+                    If (visualizzazione = "Candidati Gruppo") Then
                         ShowDatiPresidenti(IDConsultazione, consultazione)
                     ElseIf (visualizzazione = "Preferenze di Lista") Then
                         ShowDatiListe(IDConsultazione, consultazione)
@@ -505,7 +505,7 @@ Public Class Scrutinio
                 'Controllo G=A
                 Dim G = GetVotiGruppoTotale(IDConsultazione, IDSezione)
                 If (A <> G) Then
-                    stato += " | ERRORE: Voti Sindaco<>Voti Validi"
+                    stato += " | ERRORE: Voti Capo Gruppo<>Voti Validi"
                 End If
 
                 If (stato = "" And F > 0) Then
@@ -1009,7 +1009,7 @@ Public Class Scrutinio
     Private Sub LoadVisualizzazioni(ByVal descrizione As String)
         Try
             cboVisualizzazione.Items.Clear()
-            cboVisualizzazione.Items.Add("Candidati Sindaco")
+            cboVisualizzazione.Items.Add("Candidati Gruppo")
             cboVisualizzazione.Items.Add("Preferenze di Lista")
             cboVisualizzazione.Items.Add("Quadrature x Sezioni")
             cboVisualizzazione.Text = ""
@@ -1078,7 +1078,7 @@ Public Class Scrutinio
             IO.File.Copy(fileTemplate, fileDestination, True)
 
             Dim excel As New Spire.Xls.Workbook()
-            excel.Version = Spire.Xls.ExcelVersion.Version97to2003
+            excel.Version = Spire.Xls.ExcelVersion.Version2007
             excel.LoadFromFile(fileDestination)
 
             Dim sheetName As String = "Foglio1"
@@ -1118,7 +1118,25 @@ Public Class Scrutinio
                 sheet.SetValue(2, col, votiTotaliListe.ToString)
                 col += 1
 
+                'totali per gruppo
+                Dim votiTotaliGruppi As Integer = 0
+                Dim numeroGruppi As Integer = GetNumeroGruppi(IDConsultazione)
+                For numeroGruppo As Integer = 1 To numeroGruppi
+                    Dim IDGruppo As Integer = GetIDGruppoFromNumero(IDConsultazione, numeroGruppo)
+                    Dim voti = GetVotiValidiGruppo(IDConsultazione, IDGruppo, sezioniIDs)
+                    sheet.SetValue(2, col, voti.ToString)
+                    col += 1
+                    votiTotaliGruppi += voti
+                Next
+                sheet.SetValue(2, col, votiTotaliGruppi.ToString)
+                col += 1
+
+
                 'totali e quadrature
+                Dim soloGruppo = GetVotiSoloGruppo(IDConsultazione, sezioniIDs)
+                sheet.SetValue(2, col, soloGruppo.ToString)
+                col += 1
+
                 Dim schedeBianche = GetSchedeBianche(IDConsultazione, sezioniIDs)
                 sheet.SetValue(2, col, schedeBianche.ToString)
                 col += 1
@@ -1134,8 +1152,8 @@ Public Class Scrutinio
                 Dim votiTotali = votiTotaliListe + schedeBianche + schedeNulle + schedeContestate
                 sheet.SetValue(2, col, votiTotali.ToString)
 
-                sheet.Unprotect()
-                excel.UnProtect()
+                'sheet.Unprotect()
+                'excel.UnProtect()
                 excel.Save()
 
             End If
@@ -1569,6 +1587,28 @@ Public Class Scrutinio
         End Try
     End Sub
 
+
+    Private Function GetVotiSoloGruppo(ByVal IDConsultazione As Integer, sezioniIDs As ArrayList) As Integer
+        Try
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
+            Dim totale As Integer = 0
+            For Each IDSezione As Integer In sezioniIDs
+                Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
+                If (table.Count >= 1) Then
+                    Dim sezione = table(0)
+                    totale += sezione.solo_gruppo
+                End If
+            Next
+            Return totale
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return -1
+
+    End Function
+
     Private Function GetSchedeBianche(ByVal IDConsultazione As Integer, sezioniIDs As ArrayList) As Integer
         Try
             Dim adapter As New EAPModelTableAdapters.soraldo_ele_sezioniTableAdapter
@@ -1818,7 +1858,7 @@ Public Class Scrutinio
             IO.File.Copy(fileTemplate, fileDestination, True)
 
             Dim excel As New Spire.Xls.Workbook()
-            excel.Version = Spire.Xls.ExcelVersion.Version97to2003
+            excel.Version = Spire.Xls.ExcelVersion.Version2007
             excel.LoadFromFile(fileDestination)
 
             Dim sheetName As String = "Foglio1"
@@ -1854,8 +1894,8 @@ Public Class Scrutinio
                     votiTotaliListe += votiLista
                 Next
 
-                sheet.Unprotect()
-                excel.UnProtect()
+                'sheet.Unprotect()
+                'excel.UnProtect()
                 excel.Save()
 
             End If

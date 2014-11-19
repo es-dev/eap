@@ -21,7 +21,7 @@ Public Class MonitorSezioni
     Private Sub InitConsultazioni()
         Try
             Dim IDs As New List(Of Integer)
-            IDs.Add(16)
+            IDs.Add(17)
             Dim scrutinioSezioni As New Scrutinio
             For Each IDConsultazioneGenerale In IDs
                 Dim consultazione = scrutinioSezioni.GetConsultazione(IDConsultazioneGenerale)
@@ -170,9 +170,9 @@ Public Class MonitorSezioni
             Dim scrutinioSezioni As New Scrutinio
             Dim consultazione = consultazioni(IDConsultazione)
             Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
-            Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014"
-            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
-            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xls"
+            Dim templateName As String = "Scrutini_Liste_e_Presidenti_Regionali_per_Channel"
+            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xlsx"
+            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xlsx"
             scrutinioSezioni.Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
 
             listReports.Items.Add(consultazione + " | Report: " + fileName)
@@ -188,9 +188,9 @@ Public Class MonitorSezioni
             Dim scrutinioSezioni As New Scrutinio
             Dim consultazione = consultazioni(IDConsultazione)
             Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
-            Dim templateName As String = "Scrutini_Preferenze_Europee_F2003_2014"
-            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
-            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xls"
+            Dim templateName As String = "Scrutini_Preferenze_Regionali_per_Channel"
+            Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xlsx"
+            Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xlsx"
             scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
 
             listReports.Items.Add(consultazione + " | Report: " + fileName)
