@@ -1089,6 +1089,10 @@ Public Class Scrutinio
                 Dim numeroSezioniCollegio As Integer = 82
                 Dim sezioniIDs As ArrayList = GetSezioniIDs(IDConsultazione, consultazione) 'sono le sole sezioni rilevate...
                 Dim sezioniRilevate As Integer = sezioniIDs.Count
+
+                'scrittura codice segreto
+                sheet.SetValue(2, 1, 1183)
+
                 Dim col = 2
                 sheet.SetValue(2, col, sezioniRilevate.ToString)
                 col += 1
@@ -1873,6 +1877,9 @@ Public Class Scrutinio
                 Dim votantiMaschi = GetVotantiMaschi(IDConsultazione, consultazione, sezioniIDs)
                 Dim votantiFemmine = GetVotantiFemmine(IDConsultazione, consultazione, sezioniIDs)
                 Dim votantiTotali = votantiMaschi + votantiFemmine
+
+                'scrittura codice segreto
+                sheet.SetValue(2, 1, 1184)
 
                 'voti di lista
                 Dim col = 2
