@@ -421,39 +421,89 @@ Public Class Scrutinio
                 End If
 
                 'Controllo G=C+D+E+F+H, G=Votanti
-                Dim C = rowSezione.validi
+                Dim V = rowSezione.validi
+                Dim C = rowSezione.solo_gruppo
                 Dim D = rowSezione.bianchi
                 Dim E = rowSezione.nulli
                 Dim F = rowSezione.contestati
                 Dim H = rowSezione.voti_nulli
-                Dim SG = rowSezione.solo_gruppo
-                Dim G = C + D + E + F + H
-                If (G <> votanti) Then
-                    stato += " | ERRORE: Validi+Bianchi+Nulle+Contestati non coincide con i Votanti (G=" + G.ToString() + " | Votanti=" + votanti.ToString() + ")"
+                Dim G = V + D + E + F + H
 
-                End If
+                If (stato = "") Then
+                    If (G <> votanti) Then
+                        stato += " | ERRORE: Validi+Bianchi+Nulle+Contestati non coincide con i Votanti (G=" + G.ToString() + " | Votanti=" + votanti.ToString() + ")"
+                    End If
 
-                'Controllo A<>C-B, A=VotiTotaliListe
-                Dim A = GetVotiListeTotale(IDConsultazione, IDSezione)
-                If (A + SG <> C) Then
-                    stato += " | ERRORE: Totale Voti Liste non coincide con Voti Validi (A=" + (A + SG).ToString() + " | C=" + C.ToString() + ")"
-                End If
+                    If (stato = "") Then
+                        'Controllo A<>C-B, A=VotiTotaliListe
+                        Dim A = GetVotiListeTotale(IDConsultazione, IDSezione)
+                        Dim B = GetVotiGruppoTotale(IDConsultazione, IDSezione)
+                        If (A + C <> B) Then
+                            stato += " | ERRORE: Totale Voti Liste + Voti Espressi solo a Presidente non coincide con il Totale Presidenti (A+C=" + (A + C).ToString() + " | B=" + V.ToString() + ")"
+                        End If
 
-                'Controllo gruppi C=voti validi, P=voti presidenti/sindaci
-                Dim P = GetVotiGruppoTotale(IDConsultazione, IDSezione)
-                If (C <> P) Then
-                    stato += " | ERRORE: Voti ai Presidenti non coincide con i Voti Validi (C=" + C.ToString() + " | P=" + P.ToString() + ")"
+                        If (stato = "") Then
+                            'Controllo gruppi V=voti validi, B=voti presidenti/sindaci
+                            If (V <> B) Then
+                                stato += " | ERRORE: Voti ai Presidenti non coincide con i Voti Validi (V=" + V.ToString() + " | B=" + B.ToString() + ")"
+                            End If
+
+                            If (stato = "") Then
+                                'controllo dei voti di lista per presidente <= voti presidente
+                                Dim numeroGruppi = GetNumeroGruppi(IDConsultazione)
+                                For numeroGruppo = 1 To numeroGruppi
+                                    Dim IDGruppo = GetIDGruppoFromNumero(IDConsultazione, numeroGruppo)
+                                    Dim votiGruppo = GetVotiGruppoSezioneTotale(IDConsultazione, IDSezione, IDGruppo)
+                                    Dim numeroListeGruppo = GetNumeroListeGruppo(IDConsultazione, IDGruppo)
+                                    Dim votiListe = 0
+                                    For Each numeroListaGruppo In numeroListeGruppo
+                                        Dim IDListaGruppo = GetIDListaFromNumero(IDConsultazione, numeroListaGruppo)
+                                        votiListe += GetVotiListaSezioneTotale(IDConsultazione, IDSezione, IDListaGruppo)
+                                    Next
+                                    If (votiListe > votiGruppo) Then
+                                        stato += " | ERRORE: i Voti delle Liste superano i Voti del Presidente N." + numeroGruppo.ToString + " (VL=" + votiListe.ToString + " | VP=" + votiGruppo.ToString
+                                    End If
+                                Next
+
+                                'If (stato = "") Then
+                                '    'controllo dei voti ai candidati per lista <= voti lista
+                                '    Dim numeroListe = GetNumeroListe(IDConsultazione)
+                                '    For numeroLista = 1 To numeroListe
+                                '        Dim IDLista = GetIDListaFromNumero(IDConsultazione, numeroLista)
+                                '        Dim votiLista = GetVotiListaSezioneTotale(IDConsultazione, IDSezione, IDLista)
+                                '        Dim numeroCandidati = GetNumeroCandidati(IDConsultazione, IDLista)
+                                '        Dim votiCandidati = 0
+                                '        Dim compilato = True
+                                '        For numeroCandidato = 1 To numeroCandidati
+                                '            Dim IDCandidato = GetIDCandidatoFromNumero(IDConsultazione, IDLista, numeroCandidato)
+                                '            votiCandidati += GetVotiCandidatoListaTotale(IDConsultazione, IDSezione, IDCandidato)
+                                '            If (Not IsVotiCandidatoListaPresenti(IDConsultazione, IDSezione, IDCandidato)) Then
+                                '                compilato = False
+                                '                Exit For
+                                '            End If
+                                '        Next
+                                '        If (votiCandidati > votiLista) Then
+                                '            stato += " | ERRORE: i Voti dei Candidati superano i Voti della Lista N." + numeroLista.ToString + " (VC=" + votiCandidati.ToString + " | VL=" + votiLista.ToString
+                                '        End If
+                                '        If (Not compilato) Then
+                                '            stato += " | ERRORE: i Voti dei Candidati della Lista N." + numeroLista.ToString + " sono assenti"
+                                '        End If
+                                '    Next
+                                'End If
+                            End If
+                        End If
+                    End If
                 End If
 
                 'If (stato = "" And F > 0) Then
                 '    stato = "OK"
                 'End If
 
-                If (stato = "" And votanti > 0 And C > 0) Then
+                If (stato = "" And votanti > 0 And V > 0) Then
                     stato = "OK"
-                ElseIf (stato = "" And votanti = 0 And C = 0) Then
+                ElseIf (stato = "" And votanti = 0 And V = 0) Then
                     stato = ""
-                ElseIf (stato <> "" And votanti > 0 And C > 0) Then
+                ElseIf (stato <> "" And votanti > 0 And V > 0) Then
                     stato += " Consultazione=" + consultazione
                 End If
 
@@ -660,6 +710,23 @@ Public Class Scrutinio
             Dim table = adapter.GetDataByIDConsultazioneIDSezione(IDConsultazione, IDSezione)
             Dim voti As Integer = 0
             For Each row As EAPModel.soraldo_ele_voti_gruppoRow In table
+                voti += row.voti
+            Next
+            Return voti
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return -1
+
+    End Function
+
+    Private Function GetVotiGruppoSezioneTotale(IDConsultazione As Integer, IDSezione As Integer, IDGruppo As Integer) As Integer
+        Try
+            Dim table = GetVotiGruppoSezione(IDConsultazione, IDSezione, IDGruppo)
+            Dim voti As Integer = 0
+            For Each row As EAPModel.soraldo_ele_voti_gruppoRow In table.Rows
                 voti += row.voti
             Next
             Return voti
@@ -894,7 +961,6 @@ Public Class Scrutinio
     End Function
 
 
-
     Private Function GetVotiLista(ByVal IDConsultazione As Integer, ByVal IDLista As Integer) As DataTable
         Try
             Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
@@ -906,6 +972,37 @@ Public Class Scrutinio
 
         End Try
         Return Nothing
+
+    End Function
+
+    Private Function GetVotiListaSezione(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDLista As Integer) As DataTable
+        Try
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_listaTableAdapter
+            Dim table As DataTable = adapter.GetDataByIDConsultazioneIDSezioneIDLista(IDConsultazione, IDSezione, IDLista)
+            Return table
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return Nothing
+
+    End Function
+
+    Private Function GetVotiListaSezioneTotale(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDLista As Integer) As Integer
+        Try
+            Dim table = GetVotiListaSezione(IDConsultazione, IDSezione, IDLista)
+            Dim voti = 0
+            For Each row As EAPModel.soraldo_ele_voti_listaRow In table.Rows
+                voti += row.voti
+            Next
+            Return voti
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return 0
 
     End Function
 
@@ -923,10 +1020,76 @@ Public Class Scrutinio
 
     End Function
 
+    Private Function GetVotiCandidatoSezione(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDCandidato As Integer) As DataTable
+        Try
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_candidatiTableAdapter
+            Dim table As DataTable = adapter.GetDataByIDConsultazioneIDSezioneIDCandidato(IDConsultazione, IDSezione, IDCandidato)
+            Return table
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return Nothing
+
+    End Function
+
+    Private Function GetVotiCandidatoListaTotale(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDCandidato As Integer) As Integer
+        Try
+            Dim table = GetVotiCandidatoSezione(IDConsultazione, IDSezione, IDCandidato)
+            Dim voti = 0
+            For Each row As EAPModel.soraldo_ele_voti_candidatiRow In table.Rows
+                voti += row.voti
+            Next
+            Return voti
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return 0
+
+    End Function
+
+    Private Function IsVotiCandidatoListaPresenti(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDCandidato As Integer) As Boolean
+        Try
+            Dim exist = True
+            Dim table = GetVotiCandidatoSezione(IDConsultazione, IDSezione, IDCandidato)
+            For Each row As EAPModel.soraldo_ele_voti_candidatiRow In table.Rows
+                If (row.IsNull("voti")) Then
+                    exist = False
+                    Exit For
+                End If
+            Next
+            Return exist
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return 0
+
+    End Function
+
+
     Private Function GetVotiGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer) As DataTable
         Try
             Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_gruppoTableAdapter
             Dim table As DataTable = adapter.GetDataByIDConsultazioneIDGruppo(IDConsultazione, IDGruppo)
+            Return table
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return Nothing
+
+    End Function
+
+    Private Function GetVotiGruppoSezione(ByVal IDConsultazione As Integer, IDSezione As Integer, ByVal IDGruppo As Integer) As DataTable
+        Try
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_voti_gruppoTableAdapter
+            Dim table As DataTable = adapter.GetDataByIDConsultazioneIDSezioneIDGruppo(IDConsultazione, IDSezione, IDGruppo)
             Return table
 
         Catch ex As Exception
@@ -1058,11 +1221,14 @@ Public Class Scrutinio
     Private Sub cmdScrutinioParziale_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdScrutinioParziale.Click
         Try
             Dim consultazione As String = cboConsultazioni.SelectedItem
+            Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
+            Dim sezioniIDs = GetSezioniIDs(IDConsultazione, consultazione)
+
             Dim pathRoot = UtilityContainer.GetRootPath(Context)
             Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
-            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
             MessageBoxShow("Calcolo degli scrutini parziali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
 
@@ -1072,7 +1238,7 @@ Public Class Scrutinio
         End Try
     End Sub
 
-    Public Sub Scrutinio2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String)
+    Public Sub Scrutinio2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String, sezioniIDs As ArrayList)
         Try
             Dim fileDestination As String = pathRoot + "Resources\Reports\" + fileName
             IO.File.Copy(fileTemplate, fileDestination, True)
@@ -1087,7 +1253,6 @@ Public Class Scrutinio
             If (Not consultazione Is Nothing) Then
                 Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
                 Dim numeroSezioniCollegio As Integer = 82
-                Dim sezioniIDs As ArrayList = GetSezioniIDs(IDConsultazione, consultazione) 'sono le sole sezioni rilevate...
                 Dim sezioniRilevate As Integer = sezioniIDs.Count
 
                 'scrittura codice segreto
@@ -1153,7 +1318,7 @@ Public Class Scrutinio
                 sheet.SetValue(2, col, schedeContestate.ToString)
                 col += 1
 
-                Dim votiTotali = votiTotaliListe + schedeBianche + schedeNulle + schedeContestate
+                Dim votiTotali = votiTotaliGruppi + schedeBianche + schedeNulle + schedeContestate
                 sheet.SetValue(2, col, votiTotali.ToString)
 
                 'sheet.Unprotect()
@@ -1500,6 +1665,24 @@ Public Class Scrutinio
 
     End Function
 
+    Private Function GetNumeroListeGruppo(ByVal IDConsultazione As Integer, IDGruppo As Integer) As List(Of Integer)
+        Try
+            Dim adapter As New EAPModelTableAdapters.soraldo_ele_listaTableAdapter
+            Dim table As DataTable = adapter.GetDataByIDConsultazioneIDGruppo(IDConsultazione, IDGruppo)
+            Dim numeroListe As New List(Of Integer)
+            For Each row As EAPModel.soraldo_ele_listaRow In table.Rows
+                numeroListe.Add(row.num_lista)
+            Next
+            Return numeroListe
+
+        Catch ex As Exception
+            UtilityContainer.ErrorLog(ex)
+
+        End Try
+        Return Nothing
+
+    End Function
+
     Private Function GetNumeroGruppi(ByVal IDConsultazione As Integer) As Integer
         Try
             Dim adapter As New EAPModelTableAdapters.soraldo_ele_gruppoTableAdapter
@@ -1578,11 +1761,14 @@ Public Class Scrutinio
     Private Sub cmdScrutinioFinale_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdScrutinioFinale.Click
         Try
             Dim consultazione As String = cboConsultazioni.SelectedItem
+            Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
+            Dim sezioniIDs = GetSezioniIDs(IDConsultazione, consultazione)
+
             Dim pathRoot = UtilityContainer.GetRootPath(Context)
             Dim templateName As String = "Scrutini_Liste_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
-            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+            Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
             MessageBoxShow("Calcolo degli scrutini finali completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
         Catch ex As Exception
@@ -1842,11 +2028,14 @@ Public Class Scrutinio
     Private Sub cmdPreferenzeCandidati_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPreferenzeCandidati.Click
         Try
             Dim consultazione As String = cboConsultazioni.SelectedItem
+            Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
+            Dim sezioniIDs = GetSezioniIDs(IDConsultazione, consultazione)
+
             Dim pathRoot = UtilityContainer.GetRootPath(Context)
             Dim templateName As String = "Scrutini_Preferenze_Europee_F2003_2014" ' IIf(consultazione = "Camera 2013", "Camera2013", "Senato2013")
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xls"
             Dim fileName As String = templateName + "_" + Now.ToString("ddMMyyyy_hhmmss") + ".xls"
-            Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
+            Preferenze2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
             MessageBoxShow("Calcolo delle preferenze ai candidati completato con successo. E' possibile accedere all'area reports per effettuare il download del report in formato XLS. Verificare le quadrature prima di trasmettere i dati alla Prefettura.")
 
         Catch ex As Exception
@@ -1856,7 +2045,7 @@ Public Class Scrutinio
         
     End Sub
 
-    Public Sub Preferenze2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String)
+    Public Sub Preferenze2014(consultazione As String, pathRoot As String, fileTemplate As String, fileName As String, sezioniIDs As ArrayList)
         Try
             Dim fileDestination As String = pathRoot + "Resources\Reports\" + fileName
             IO.File.Copy(fileTemplate, fileDestination, True)
@@ -1871,7 +2060,6 @@ Public Class Scrutinio
             If (Not consultazione Is Nothing) Then
                 Dim IDConsultazione As Integer = GetIDConsultazione(consultazione)
                 Dim numeroSezioniCollegio As Integer = 82
-                Dim sezioniIDs As ArrayList = GetSezioniIDs(IDConsultazione, consultazione) 'sono le sole sezioni rilevate...
                 Dim sezioniRilevate As Integer = sezioniIDs.Count
 
                 Dim votantiMaschi = GetVotantiMaschi(IDConsultazione, consultazione, sezioniIDs)

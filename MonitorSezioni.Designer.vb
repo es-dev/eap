@@ -347,9 +347,9 @@ Partial Class MonitorSezioni
         Me.chkTimerSync.Anchor = CType((Gizmox.WebGUI.Forms.AnchorStyles.Top Or Gizmox.WebGUI.Forms.AnchorStyles.Right), Gizmox.WebGUI.Forms.AnchorStyles)
         Me.chkTimerSync.Checked = True
         Me.chkTimerSync.CheckState = Gizmox.WebGUI.Forms.CheckState.Checked
-        Me.chkTimerSync.Location = New System.Drawing.Point(655, 118)
+        Me.chkTimerSync.Location = New System.Drawing.Point(643, 118)
         Me.chkTimerSync.Name = "chkTimerSync"
-        Me.chkTimerSync.Size = New System.Drawing.Size(85, 17)
+        Me.chkTimerSync.Size = New System.Drawing.Size(97, 17)
         Me.chkTimerSync.TabIndex = 10
         Me.chkTimerSync.Text = "Timer Sync"
         '

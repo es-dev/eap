@@ -1,7 +1,0 @@
-Log Entry: 13/05/2011 20.45.37
-Error in: http://localhost:44636/Route/2.71.2/ie/en-US/Office2010/1/Content.homepage.aspx?vwginstance=0
-Error Message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA)
-Stack Trace:    at OfficeUtility.ExcelUtility.SetValue(String sheetName, Int64 row, Int64 col, Object cellValue) in C:\Tools Visual Studio.NET\OfficeUtility\ExcelUtility.vb:line 695
-   at SIC.EAP_Elezioni_Online.VotiRegionali.Scrutinio2011() in C:\Progetti\Progetti Web\SIC.EAP Elezioni Online\VotiRegionali.vb:line 564
-Error Source: OfficeUtility
-__________________________

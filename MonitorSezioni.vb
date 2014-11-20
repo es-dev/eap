@@ -62,6 +62,8 @@ Public Class MonitorSezioni
             Dim asyncProcess As New Threading.Thread(New Threading.ThreadStart(AddressOf UpdateStato))
             asyncProcess.Start()
 
+            'UpdateStato()
+
         Catch ex As Exception
             UtilityContainer.ErrorLog(ex)
 
@@ -153,9 +155,12 @@ Public Class MonitorSezioni
     Private Sub LoadStatoReports()
         Try
             listReports.Items.Clear()
+            Dim scrutinioSezioni As New Scrutinio
             For Each IDConsultazione In consultazioni.Keys
-                LoadStatoReportScrutini(IDConsultazione)
-                LoadStatoReportPreferenze(IDConsultazione)
+                Dim consultazione = consultazioni(IDConsultazione)
+                Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
+                LoadStatoReportScrutini(IDConsultazione, sezioniIDs, consultazione)
+                LoadStatoReportPreferenze(IDConsultazione, sezioniIDs, consultazione)
             Next
             lblLastUpdate.Text = "( Reports ultimo aggiornamento --> " + Now.ToString("dd/MM/yyyy HH:mm:ss") + " )"
 
@@ -165,15 +170,13 @@ Public Class MonitorSezioni
         End Try
     End Sub
 
-    Private Sub LoadStatoReportScrutini(IDConsultazione As Integer)
+    Private Sub LoadStatoReportScrutini(IDConsultazione As Integer, sezioniIDs As ArrayList, consultazione As String)
         Try
             Dim scrutinioSezioni As New Scrutinio
-            Dim consultazione = consultazioni(IDConsultazione)
-            Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
             Dim templateName As String = "Scrutini_Liste_e_Presidenti_Regionali_per_Channel"
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xlsx"
             Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xlsx"
-            scrutinioSezioni.Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName)
+            scrutinioSezioni.Scrutinio2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
 
             listReports.Items.Add(consultazione + " | Report: " + fileName)
 
@@ -183,15 +186,13 @@ Public Class MonitorSezioni
 
     End Sub
 
-    Private Sub LoadStatoReportPreferenze(IDConsultazione As Integer)
+    Private Sub LoadStatoReportPreferenze(IDConsultazione As Integer, sezioniIDs As ArrayList, consultazione As String)
         Try
             Dim scrutinioSezioni As New Scrutinio
-            Dim consultazione = consultazioni(IDConsultazione)
-            Dim sezioniIDs = scrutinioSezioni.GetSezioniIDs(IDConsultazione, consultazione)
             Dim templateName As String = "Scrutini_Preferenze_Regionali_per_Channel"
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xlsx"
             Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xlsx"
-            scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName)
+            scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
 
             listReports.Items.Add(consultazione + " | Report: " + fileName)
 
