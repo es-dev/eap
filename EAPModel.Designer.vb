@@ -19941,7 +19941,7 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT descrizione, id_circ, id_cons, id_gruppo, id_lista, num_lista, simbolo, st" & _
-                "emma FROM soraldo_ele_lista WHERE (id_cons = @id_cons)"
+                "emma FROM soraldo_ele_lista WHERE (id_cons = @id_cons) order by num_lista"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -20368,7 +20368,7 @@ Namespace EAPModelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(4) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(5) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_cons`, `id_gruppo`, `id_sez`, `voti`, `lista` FROM `soraldo_ele_voti_g" & _
@@ -20377,7 +20377,7 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT id_cons, id_gruppo, id_sez, lista, voti FROM soraldo_ele_voti_gruppo WHERE" & _
-                " (id_cons = @IDConsultazione) AND (id_gruppo = @IDGruppo)"
+                " (id_cons = @IDConsultazione)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@IDConsultazione"
@@ -20386,43 +20386,29 @@ Namespace EAPModelTableAdapters
             param.IsNullable = True
             param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@IDGruppo"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = True
-            param.SourceColumn = "id_gruppo"
-            Me._commandCollection(1).Parameters.Add(param)
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT `id_cons`, `id_gruppo`, `id_sez`, `voti`, `lista` FROM `soraldo_ele_voti_g" & _
-                "ruppo` where id_cons=@id_cons and id_gruppo=@id_gruppo and id_sez=@id_sez"
+            Me._commandCollection(2).CommandText = "SELECT id_cons, id_gruppo, id_sez, lista, voti FROM soraldo_ele_voti_gruppo WHERE" & _
+                " (id_cons = @IDConsultazione) AND (id_gruppo = @IDGruppo)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_cons"
+            param.ParameterName = "@IDConsultazione"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_gruppo"
+            param.ParameterName = "@IDGruppo"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_gruppo"
             Me._commandCollection(2).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_sez"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = True
-            param.SourceColumn = "id_sez"
-            Me._commandCollection(2).Parameters.Add(param)
             Me._commandCollection(3) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT `id_cons`, `id_gruppo`, `id_sez`, `voti`, `lista` FROM `soraldo_ele_voti_g" & _
-                "ruppo`" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "where id_cons=@id_cons and id_sez=@id_sez"
+                "ruppo` where id_cons=@id_cons and id_gruppo=@id_gruppo and id_sez=@id_sez"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -20430,6 +20416,13 @@ Namespace EAPModelTableAdapters
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_cons"
+            Me._commandCollection(3).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_gruppo"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_gruppo"
             Me._commandCollection(3).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_sez"
@@ -20440,11 +20433,11 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(3).Parameters.Add(param)
             Me._commandCollection(4) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT id_cons, id_gruppo, id_sez, lista, voti FROM soraldo_ele_voti_gruppo WHERE" & _
-                " (id_cons = @IDConsultazione) and id_sez=@id_sez AND (id_gruppo = @IDGruppo)"
+            Me._commandCollection(4).CommandText = "SELECT `id_cons`, `id_gruppo`, `id_sez`, `voti`, `lista` FROM `soraldo_ele_voti_g" & _
+                "ruppo`" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "where id_cons=@id_cons and id_sez=@id_sez"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@IDConsultazione"
+            param.ParameterName = "@id_cons"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
@@ -20457,13 +20450,32 @@ Namespace EAPModelTableAdapters
             param.IsNullable = True
             param.SourceColumn = "id_sez"
             Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT id_cons, id_gruppo, id_sez, lista, voti FROM soraldo_ele_voti_gruppo WHERE" & _
+                " (id_cons = @IDConsultazione) and id_sez=@id_sez AND (id_gruppo = @IDGruppo)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@IDConsultazione"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_cons"
+            Me._commandCollection(5).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_sez"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_sez"
+            Me._commandCollection(5).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@IDGruppo"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_gruppo"
-            Me._commandCollection(4).Parameters.Add(param)
+            Me._commandCollection(5).Parameters.Add(param)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -20494,8 +20506,34 @@ Namespace EAPModelTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByIDConsultazioneIDGruppo(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer) As Integer
+        Public Overridable Overloads Function FillByIDConsultazione(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal IDConsultazione As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByIDConsultazione(ByVal IDConsultazione As Integer) As EAPModel.soraldo_ele_voti_gruppoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
+            Dim dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable = New EAPModel.soraldo_ele_voti_gruppoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByIDConsultazioneIDGruppo(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(IDGruppo, Integer)
             If (Me.ClearBeforeFill = True) Then
@@ -20510,7 +20548,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDGruppo(ByVal IDConsultazione As Integer, ByVal IDGruppo As Integer) As EAPModel.soraldo_ele_voti_gruppoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(IDGruppo, Integer)
             Dim dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable = New EAPModel.soraldo_ele_voti_gruppoDataTable()
@@ -20523,7 +20561,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
         Public Overridable Overloads Function FillByIDConsultazioneIDGruppoIDSezione(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal id_cons As Integer, ByVal id_gruppo As Integer, ByVal id_sez As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_gruppo, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_sez, Integer)
@@ -20539,7 +20577,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDGruppoIDSezione(ByVal id_cons As Integer, ByVal id_gruppo As Integer, ByVal id_sez As Integer) As EAPModel.soraldo_ele_voti_gruppoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_gruppo, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_sez, Integer)
@@ -20553,7 +20591,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
         Public Overridable Overloads Function FillByIDConsultazioneIDSezione(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal id_cons As Integer, ByVal id_sez As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             If (Me.ClearBeforeFill = True) Then
@@ -20568,7 +20606,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDSezione(ByVal id_cons As Integer, ByVal id_sez As Integer) As EAPModel.soraldo_ele_voti_gruppoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             Dim dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable = New EAPModel.soraldo_ele_voti_gruppoDataTable()
@@ -20581,7 +20619,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
         Public Overridable Overloads Function FillByIDConsultazioneIDSezioneIDGruppo(ByVal dataTable As EAPModel.soraldo_ele_voti_gruppoDataTable, ByVal IDConsultazione As Integer, ByVal id_sez As Integer, ByVal IDGruppo As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(IDGruppo, Integer)
@@ -20597,7 +20635,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDSezioneIDGruppo(ByVal IDConsultazione As Integer, ByVal id_sez As Integer, ByVal IDGruppo As Integer) As EAPModel.soraldo_ele_voti_gruppoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(IDConsultazione, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(IDGruppo, Integer)
@@ -20837,7 +20875,7 @@ Namespace EAPModelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(3) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_cons`, `id_cand`, `id_sez`, `voti` FROM `soraldo_ele_voti_candidati`"
@@ -20845,7 +20883,7 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT id_cand, id_cons, id_sez, voti FROM soraldo_ele_voti_candidati WHERE (id_c" & _
-                "ons = @id_cons) AND (id_cand = @id_cand)"
+                "ons = @id_cons)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -20854,17 +20892,10 @@ Namespace EAPModelTableAdapters
             param.IsNullable = True
             param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_cand"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = True
-            param.SourceColumn = "id_cand"
-            Me._commandCollection(1).Parameters.Add(param)
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT id_cand, id_cons, id_sez, voti FROM soraldo_ele_voti_candidati WHERE (id_c" & _
-                "ons = @id_cons) AND  id_sez=@id_sez and (id_cand = @id_cand)"
+                "ons = @id_cons) AND (id_cand = @id_cand)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -20874,19 +20905,38 @@ Namespace EAPModelTableAdapters
             param.SourceColumn = "id_cons"
             Me._commandCollection(2).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_sez"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = True
-            param.SourceColumn = "id_sez"
-            Me._commandCollection(2).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cand"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "id_cand"
             Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(3) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT id_cand, id_cons, id_sez, voti FROM soraldo_ele_voti_candidati WHERE (id_c" & _
+                "ons = @id_cons) AND  id_sez=@id_sez and (id_cand = @id_cand)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_cons"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_cons"
+            Me._commandCollection(3).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_sez"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_sez"
+            Me._commandCollection(3).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_cand"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_cand"
+            Me._commandCollection(3).Parameters.Add(param)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -20917,8 +20967,34 @@ Namespace EAPModelTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByIDConsultazioneIDCandidato(ByVal dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable, ByVal id_cons As Integer, ByVal id_cand As Integer) As Integer
+        Public Overridable Overloads Function FillByIDConsultazione(ByVal dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable, ByVal id_cons As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByIDConsultazione(ByVal id_cons As Integer) As EAPModel.soraldo_ele_voti_candidatiDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
+            Dim dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable = New EAPModel.soraldo_ele_voti_candidatiDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByIDConsultazioneIDCandidato(ByVal dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable, ByVal id_cons As Integer, ByVal id_cand As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_cand, Integer)
             If (Me.ClearBeforeFill = True) Then
@@ -20933,7 +21009,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDCandidato(ByVal id_cons As Integer, ByVal id_cand As Integer) As EAPModel.soraldo_ele_voti_candidatiDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_cand, Integer)
             Dim dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable = New EAPModel.soraldo_ele_voti_candidatiDataTable()
@@ -20946,7 +21022,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
         Public Overridable Overloads Function FillByIDConsultazioneIDSezioneIDCandidato(ByVal dataTable As EAPModel.soraldo_ele_voti_candidatiDataTable, ByVal id_cons As Integer, ByVal id_sez As Integer, ByVal id_cand As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cand, Integer)
@@ -20962,7 +21038,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDSezioneIDCandidato(ByVal id_cons As Integer, ByVal id_sez As Integer, ByVal id_cand As Integer) As EAPModel.soraldo_ele_voti_candidatiDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_sez, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cand, Integer)
@@ -21202,7 +21278,7 @@ Namespace EAPModelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(2) {}
+            Me._commandCollection = New Global.MySql.Data.MySqlClient.MySqlCommand(3) {}
             Me._commandCollection(0) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT `id_cand`, `id_cons`, `id_lista`, `cognome`, `nome`, `note`, `simbolo`, `n" & _
@@ -21211,7 +21287,7 @@ Namespace EAPModelTableAdapters
             Me._commandCollection(1) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT cognome, id_cand, id_cons, id_lista, nome, note, num_cand, simbolo FROM so" & _
-                "raldo_ele_candidati WHERE (id_cons = @id_cons) AND (id_lista = @id_lista)"
+                "raldo_ele_candidati WHERE (id_cons = @id_cons) "
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.MySql.Data.MySqlClient.MySqlParameter = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -21220,18 +21296,10 @@ Namespace EAPModelTableAdapters
             param.IsNullable = True
             param.SourceColumn = "id_cons"
             Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
-            param.ParameterName = "@id_lista"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
-            param.IsNullable = True
-            param.SourceColumn = "id_lista"
-            Me._commandCollection(1).Parameters.Add(param)
             Me._commandCollection(2) = New Global.MySql.Data.MySqlClient.MySqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT cognome, id_cand, id_cons, id_lista, nome, note, num_cand, simbolo FROM so" & _
-                "raldo_ele_candidati WHERE (id_cons = @id_cons) AND (id_lista = @id_lista) AND (n" & _
-                "um_cand = @num_cand)"
+                "raldo_ele_candidati WHERE (id_cons = @id_cons) AND (id_lista = @id_lista)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@id_cons"
@@ -21247,13 +21315,33 @@ Namespace EAPModelTableAdapters
             param.IsNullable = True
             param.SourceColumn = "id_lista"
             Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(3) = New Global.MySql.Data.MySqlClient.MySqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT cognome, id_cand, id_cons, id_lista, nome, note, num_cand, simbolo FROM so" & _
+                "raldo_ele_candidati WHERE (id_cons = @id_cons) AND (id_lista = @id_lista) AND (n" & _
+                "um_cand = @num_cand)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_cons"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_cons"
+            Me._commandCollection(3).Parameters.Add(param)
+            param = New Global.MySql.Data.MySqlClient.MySqlParameter()
+            param.ParameterName = "@id_lista"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
+            param.IsNullable = True
+            param.SourceColumn = "id_lista"
+            Me._commandCollection(3).Parameters.Add(param)
             param = New Global.MySql.Data.MySqlClient.MySqlParameter()
             param.ParameterName = "@num_cand"
             param.DbType = Global.System.Data.DbType.Int32
             param.MySqlDbType = Global.MySql.Data.MySqlClient.MySqlDbType.Int32
             param.IsNullable = True
             param.SourceColumn = "num_cand"
-            Me._commandCollection(2).Parameters.Add(param)
+            Me._commandCollection(3).Parameters.Add(param)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -21284,8 +21372,34 @@ Namespace EAPModelTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
-        Public Overridable Overloads Function FillByIDConsultazioneIDLista(ByVal dataTable As EAPModel.soraldo_ele_candidatiDataTable, ByVal id_cons As Integer, ByVal id_lista As Integer) As Integer
+        Public Overridable Overloads Function FillByIDConsultazione(ByVal dataTable As EAPModel.soraldo_ele_candidatiDataTable, ByVal id_cons As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDataByIDConsultazione(ByVal id_cons As Integer) As EAPModel.soraldo_ele_candidatiDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
+            Dim dataTable As EAPModel.soraldo_ele_candidatiDataTable = New EAPModel.soraldo_ele_candidatiDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillByIDConsultazioneIDLista(ByVal dataTable As EAPModel.soraldo_ele_candidatiDataTable, ByVal id_cons As Integer, ByVal id_lista As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_lista, Integer)
             If (Me.ClearBeforeFill = True) Then
@@ -21300,7 +21414,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDLista(ByVal id_cons As Integer, ByVal id_lista As Integer) As EAPModel.soraldo_ele_candidatiDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_lista, Integer)
             Dim dataTable As EAPModel.soraldo_ele_candidatiDataTable = New EAPModel.soraldo_ele_candidatiDataTable()
@@ -21313,7 +21427,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
         Public Overridable Overloads Function FillByIDConsultazioneIDListaNumero(ByVal dataTable As EAPModel.soraldo_ele_candidatiDataTable, ByVal id_cons As Integer, ByVal id_lista As Integer, ByVal num_cand As Integer) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_lista, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(num_cand, Integer)
@@ -21329,7 +21443,7 @@ Namespace EAPModelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
         Public Overridable Overloads Function GetDataByIDConsultazioneIDListaNumero(ByVal id_cons As Integer, ByVal id_lista As Integer, ByVal num_cand As Integer) As EAPModel.soraldo_ele_candidatiDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_cons, Integer)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_lista, Integer)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(num_cand, Integer)

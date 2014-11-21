@@ -192,7 +192,8 @@ Public Class MonitorSezioni
             Dim templateName As String = "Scrutini_Preferenze_Regionali_per_Channel"
             Dim fileTemplate As String = pathRoot + "Resources\Templates\" + templateName + ".xlsx"
             Dim fileName As String = templateName + "_sezioni_" + sezioniIDs.Count.ToString + "_su_82.xlsx"
-            scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs)
+            Dim tableCandidati = scrutinioSezioni.GetCandidati(IDConsultazione)
+            scrutinioSezioni.Preferenze2014(consultazione, pathRoot, fileTemplate, fileName, sezioniIDs, tableCandidati)
 
             listReports.Items.Add(consultazione + " | Report: " + fileName)
 
@@ -217,9 +218,18 @@ Public Class MonitorSezioni
             If (Not consultazione Is Nothing) Then
                 If (consultazione <> "Tutte le consultazioni") Then
                     Dim IDConsultazione = scrutinioSezioni.GetIDConsultazione(consultazione)
+                    Dim numeroGruppi = scrutinioSezioni.GetNumeroGruppi(IDConsultazione)
+                    Dim tableVotiCandidati = scrutinioSezioni.GetVotiCandidati(IDConsultazione)
+                    Dim tableCandidati = scrutinioSezioni.GetCandidati(IDConsultazione)
+                    Dim tableVotiLista = scrutinioSezioni.GetVotiLista(IDConsultazione)
+                    Dim tableListe = scrutinioSezioni.GetListe(IDConsultazione)
+                    Dim tableVotiGruppo = scrutinioSezioni.GetVotiGruppo(IDConsultazione)
+                    Dim tableGruppi = scrutinioSezioni.GetGruppi(IDConsultazione)
+                    Dim tableSezioni = scrutinioSezioni.GetSezioni(IDConsultazione)
                     For numeroSezione = 1 To 82
                         Dim IDSezione = scrutinioSezioni.GetIDSezione(IDConsultazione, numeroSezione)
-                        Dim stato = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione)
+                        Dim stato = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione, numeroGruppi, tableVotiCandidati, _
+                                                                     tableCandidati, tableVotiLista, tableListe, tableVotiGruppo, tableGruppi, tableSezioni)
                         Dim monitorSezioneRow = GetMonitorSezioneRow(numeroSezione, panelSezioni.Controls)
                         monitorSezioneRow.SetStato(stato)
                     Next

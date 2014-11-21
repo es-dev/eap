@@ -107,7 +107,17 @@ Public Class VerificaSezioni
             For Each IDConsultazione In consultazioni.Keys
                 Dim consultazione As String = consultazioni(IDConsultazione)
                 Dim IDSezione = scrutinioSezioni.GetIDSezione(IDConsultazione, numeroSezione)
-                Dim statoSezione = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione)
+
+                Dim numeroGruppi = scrutinioSezioni.GetNumeroGruppi(IDConsultazione)
+                Dim tableCandidati = scrutinioSezioni.GetCandidati(IDConsultazione)
+                Dim tableVotiCandidati = scrutinioSezioni.GetVotiCandidati(IDConsultazione)
+                Dim tableVotiLista = scrutinioSezioni.GetVotiLista(IDConsultazione)
+                Dim tableListe = scrutinioSezioni.GetListe(IDConsultazione)
+                Dim tableVotiGruppo = scrutinioSezioni.GetVotiGruppo(IDConsultazione)
+                Dim tableGruppi = scrutinioSezioni.GetGruppi(IDConsultazione)
+                Dim tableSezioni = scrutinioSezioni.GetSezioni(IDConsultazione)
+                Dim statoSezione = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione, numeroGruppi, tableVotiCandidati, _
+                                                                    tableCandidati, tableVotiLista, tableListe, tableVotiGruppo, tableGruppi, tableSezioni)
                 stato = statoSezione
                 If (statoSezione <> "OK" And statoSezione <> "") Then
                     Return stato

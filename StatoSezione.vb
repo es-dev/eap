@@ -65,7 +65,16 @@ Public Class StatoSezione
                 Dim row = table.NewStatoSezioneRow
                 row.Consultazione = consultazione
 
-                Dim stato = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione)
+                Dim numeroGruppi = scrutinioSezioni.GetNumeroGruppi(IDConsultazione)
+                Dim tableVotiCandidati = scrutinioSezioni.GetVotiCandidati(IDConsultazione)
+                Dim tableCandidati = scrutinioSezioni.GetCandidati(IDConsultazione)
+                Dim tableVotiLista = scrutinioSezioni.GetVotiLista(IDConsultazione)
+                Dim tableListe = scrutinioSezioni.GetListe(IDConsultazione)
+                Dim tableVotiGruppo = scrutinioSezioni.GetVotiGruppo(IDConsultazione)
+                Dim tableGruppi = scrutinioSezioni.GetGruppi(IDConsultazione)
+                Dim tableSezioni = scrutinioSezioni.GetSezioni(IDConsultazione)
+                Dim stato = scrutinioSezioni.GetStatoSezione(IDConsultazione, IDSezione, consultazione, numeroGruppi, tableVotiCandidati, _
+                                                             tableCandidati, tableVotiLista, tableListe, tableVotiGruppo, tableGruppi, tableSezioni)
                 row.Stato = stato
                 table.AddStatoSezioneRow(row)
             Next
