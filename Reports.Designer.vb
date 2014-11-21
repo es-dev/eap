@@ -181,7 +181,6 @@ Partial Class Reports
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)
-        Me.FormBorderStyle = Gizmox.WebGUI.Forms.FormBorderStyle.None
         Me.Size = New System.Drawing.Size(906, 548)
         Me.Text = "Reports"
         Me.Panel2.ResumeLayout(False)
