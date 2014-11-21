@@ -1,3 +1,2 @@
-C:\Programmi\EasyPHP5.2.10\mysql\bin\mysqldump -h 127.0.0.1 -u root -pvIard1na19 eleonline > c:\temp\eleonline_backup.sql
-C:\Programmi\EasyPHP5.2.10\mysql\bin\mysql -h 10.17.1.2 -u root -pvIard1na19 eleonline < c:\temp\eleonline_backup.sql
-C:\Programmi\EasyPHP5.2.10\mysql\bin\mysql -h 62.149.168.11 -u root -pvIard1na19 eleonline < c:\temp\eleonline_backup.sql
+"C:\Program Files\MySQL\MySQL Server 5.6\bin\mysqldump" -h 127.0.0.1 -u Sql755035 -p4f8xakg38w Sql755035_3 > c:\temp\Sql755035_3_backup.sql
+"C:\Program Files\MySQL\MySQL Server 5.6\bin\mysql" -h 95.110.191.37 -u Sql755035 -p4f8xakg38w Sql755035_3 < c:\temp\Sql755035_3_backup.sql

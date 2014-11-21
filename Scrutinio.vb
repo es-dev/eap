@@ -485,6 +485,7 @@ Public Class Scrutinio
                                             stato += " | ERRORE: i Voti dei Candidati della Lista N." + numeroLista.ToString + " sono assenti"
                                             Exit For
                                         End If
+                                        votiListe += votiLista
                                     Next
                                     If (votiListe > votiGruppo) Then
                                         stato += " | ERRORE: i Voti delle Liste superano i Voti del Presidente N." + numeroGruppo.ToString + " (VL=" + votiListe.ToString + " | VP=" + votiGruppo.ToString
