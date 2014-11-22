@@ -466,25 +466,25 @@ Public Class Scrutinio
                                     For Each numeroLista In numeroListe
                                         Dim IDLista = GetIDListaFromNumero(IDConsultazione, numeroLista, tableListe)
                                         Dim votiLista = GetVotiListaSezioneTotale(IDConsultazione, IDSezione, IDLista, tableVotiLista)
-                                        Dim numeroCandidati = GetNumeroCandidati(IDConsultazione, IDLista, tableCandidati)
-                                        Dim votiCandidati = 0
-                                        Dim compilato = True
-                                        For numeroCandidato = 1 To numeroCandidati
-                                            Dim IDCandidato = GetIDCandidatoFromNumero(IDConsultazione, IDLista, numeroCandidato, tableCandidati)
-                                            votiCandidati += GetVotiCandidatoListaTotale(IDConsultazione, IDSezione, IDCandidato, tableVotiCandidati)
-                                            If (Not IsVotiCandidatoListaPresenti(IDConsultazione, IDSezione, IDCandidato, tableVotiCandidati)) Then
-                                                compilato = False
-                                                Exit For
-                                            End If
-                                        Next
-                                        If (votiCandidati > votiLista) Then
-                                            stato += " | ERRORE: i Voti dei Candidati superano i Voti della Lista N." + numeroLista.ToString + " (VC=" + votiCandidati.ToString + " | VL=" + votiLista.ToString
-                                            Exit For
-                                        End If
-                                        If (Not compilato) Then
-                                            stato += " | ERRORE: i Voti dei Candidati della Lista N." + numeroLista.ToString + " sono assenti"
-                                            Exit For
-                                        End If
+                                        'Dim numeroCandidati = GetNumeroCandidati(IDConsultazione, IDLista, tableCandidati)
+                                        'Dim votiCandidati = 0
+                                        'Dim compilato = True
+                                        'For numeroCandidato = 1 To numeroCandidati
+                                        '    Dim IDCandidato = GetIDCandidatoFromNumero(IDConsultazione, IDLista, numeroCandidato, tableCandidati)
+                                        '    votiCandidati += GetVotiCandidatoListaTotale(IDConsultazione, IDSezione, IDCandidato, tableVotiCandidati)
+                                        '    If (Not IsVotiCandidatoListaPresenti(IDConsultazione, IDSezione, IDCandidato, tableVotiCandidati)) Then
+                                        '        compilato = False
+                                        '        Exit For
+                                        '    End If
+                                        'Next
+                                        'If (votiCandidati > votiLista) Then
+                                        '    stato += " | ERRORE: i Voti dei Candidati superano i Voti della Lista N." + numeroLista.ToString + " (VC=" + votiCandidati.ToString + " | VL=" + votiLista.ToString
+                                        '    Exit For
+                                        'End If
+                                        'If (Not compilato) Then
+                                        '    stato += " | ERRORE: i Voti dei Candidati della Lista N." + numeroLista.ToString + " sono assenti"
+                                        '    Exit For
+                                        'End If
                                         votiListe += votiLista
                                     Next
                                     If (votiListe > votiGruppo) Then
