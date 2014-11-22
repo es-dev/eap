@@ -355,7 +355,7 @@ else
 if($genere==4 and !$id_lista)	
 		$result = mysql_query("SELECT sum(t1.voti),t2.validi, t2.solo_gruppo,t2.contestati,t2.voti_nulli from ".$prefix."_ele_sezioni as t2 left join ".$prefix.$tab." as t1 on (t1.id_sez=t2.id_sez) where t2.id_sez=$id_sez group by t1.id_sez",$dbi);
 else
-		$result = mysql_query("SELECT sum(t1.voti),t2.validi_lista, t2.solo_gruppo,t2.contestati,t2.voti_nulli from ".$prefix."_ele_sezioni as t2 left join ".$prefix.$tab." as t1 on (t1.id_sez=t2.id_sez) where t2.id_sez=$id_sez group by t1.id_sez",$dbi);
+		$result = mysql_query("SELECT sum(t1.voti),t2.validi, t2.solo_gruppo,t2.contestati,t2.voti_nulli from ".$prefix."_ele_sezioni as t2 left join ".$prefix.$tab." as t1 on (t1.id_sez=t2.id_sez) where t2.id_sez=$id_sez group by t1.id_sez",$dbi);
 		list( $voti_sez, $validi2, $sg,$cont2,$vnulli2) = mysql_fetch_row($result);
 		if(!$id_lista or $genere==3){	//controllo di congruenza
 			$res2 = mysql_query("SELECT max(voti_complessivi) FROM ".$prefix."_ele_voti_parziale where id_cons='$id_cons' and id_sez='$id_sez'", $dbi);
@@ -363,9 +363,9 @@ else
 			if ($validi+$nulli+$bianchi+$contestati+$votinulli+$sg!=$tot and $validi+$sg>0){
 				echo "<table border=\"0\" width=\"50%\"  align=\"center\"><tr><td style=\"background-color: rgb(255, 0, 0); align=center\"><img src=\"modules/Elezioni/images/alert.gif\" align=\"middle\" alt=\"\"><br><b> "._ATT_VOTANTI." ".$tot." "._NO_TOT_VOTI." ".($validi+$nulli+$bianchi+$contestati+$votinulli+$sg)."</b><br></td></table>";
 			}
-
-			if((($voti_sez)!=$validi2) and ($voti_sez>0)){
-				echo "<table border=\"0\" width=\"50%\"  align=\"center\"><tr><td style=\"background-color: rgb(255, 0, 0); align=center\"><img src=\"modules/Elezioni/images/alert.gif\" align=\"middle\" alt=\"\"><br><b> "._ATT_VOTI." ".($voti_sez)." "._NO_VAL_VOTI." ".$validi2."</b><br></td></tr></table>";
+            //inserita la differenza -$cont2
+			if((($voti_sez)+$sg!=$validi2) and ($voti_sez>0)){
+				echo "<table border=\"0\" width=\"50%\"  align=\"center\"><tr><td style=\"background-color: rgb(255, 0, 0); align=center\"><img src=\"modules/Elezioni/images/alert.gif\" align=\"middle\" alt=\"\"><br><b> "._ATT_VOTI." ".($voti_sez+$sg)." "._NO_VAL_VOTI." ".$validi2."</b><br></td></tr></table>";
 			}
 		}
 
@@ -458,11 +458,15 @@ else
 		if(!$votog) {
 		   if (($genere==3 OR $genere==5) and (!$id_lista) and ($fascia>$limite)) { //gruppo e liste
 			echo "<tr bgcolor=\"$bgcolor2\"><td></td><td><b>"._SOLO_GRUPPO."</b></td><td align=\"center\"><input type=\"hidden\" name=\"id_sez\" value=\"$id_sez\"><input name=\"sg\" value=\"$sg\" size=\"5\"></td></tr>";
-			echo "<tr bgcolor=\"$bgcolor2\"><td></td><td><b>"._NULLI_LISTE."</b></td><td align=\"center\"><input  name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
-	."</td></tr><tr bgcolor=\"$bgcolor2\"><td></td><td><b>"._CONTESTATI_LISTE."</b></td><td align=\"center\"><input  name=\"contestati\" value=\"$contestati\" size=\"5\"></td></tr>";
+			echo "<tr bgcolor=\"$bgcolor2\"><td></td><td><b></b></td><td align=\"center\"><input type=\"hidden\" name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
+	."</td></tr><tr bgcolor=\"$bgcolor2\"><td></td><td><b></b></td><td align=\"center\"><input type=\"hidden\"  name=\"contestati\" value=\"$contestati\" size=\"1\"></td></tr>";
 			
+    /*echo "<tr bgcolor=\"$bgcolor2\"><td></td><td><b>"._NULLI_LISTE."</b></td><td align=\"center\"><input type=\"hidden\" name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
+	."</td></tr><tr bgcolor=\"$bgcolor2\"><td></td><td><b>"._CONTESTATI_LISTE."</b></td><td align=\"center\"><input type=\"hidden\"  name=\"contestati\" value=\"$contestati\" size=\"1\"></td></tr>";*/
+
 		   }elseif (($genere==3 OR $genere==5) and !$votoc and $fascia>$limite){ //}elseif ($tipo_cons!=10 and $tipo_cons!=11){
-			echo "<tr bgcolor=\"$bgcolor1\"><td></td><td><b>"._SOLO_GRUPPO."</b></td><td align=\"center\">$sg</td></tr>";
+			echo "<tr bgcolor=\"$bgcolor1\"><td></td><td><b></b></td><td align=\"center\"></td></tr>";
+            //echo "<tr bgcolor=\"$bgcolor1\"><td></td><td><b>"._SOLO_GRUPPO."</b></td><td align=\"center\">$sg</td></tr>";
 		   }
 ######modifica del 16-04-2009 per visualizzare i voti al solo sindaco nei comuni con meno di 15000 abitanti
 elseif(($genere==3 OR $genere==5) and ($id_lista) and ($fascia<=$limite)) {
@@ -759,7 +763,8 @@ $bgcolor2=$_SESSION['bgcolor2'];
 		echo "<td width=\"32\"><b>"._VALIDI."</b></td>";
 	echo "<td width=\"32\"><b>"._NULLI."</b></td>"
     ."<td><b>"._BIANCHI."</b></td>"
-	."<td width=\"32\"><b>"._VOTINULLI."</b></td>"
+//	."<td width=\"32\"><b>"._VOTINULLI."</b></td>"
+	."<td width=\"0\"><b></b></td>"
 	."<td><b>"._CONTESTATI."</b></td>"
     ."<td><b>"._TOTNON."</b></td>"
 	."<td><b>"._TOTALEVOTI."</b></td>"
@@ -781,7 +786,8 @@ else */
 	echo "</td><td><input  name=\"nulli\" value=\"$nulli\" size=\"5\">"
 	."</td><td><input  name=\"bianchi\" value=\"$bianchi\" size=\"5\">";
 //	}
-	echo "</td><td><input  name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
+//	echo "</td><td><input  name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
+	echo "</td><td><input type=\"hidden\" name=\"votinulli\" value=\"$votinulli\" size=\"5\">"
 	."</td><td><input  name=\"contestati\" value=\"$contestati\" size=\"5\">"
 	."</td><td>$tot_nulli"
 	."</td><td>$tot_voti</td><td>"
@@ -1098,7 +1104,7 @@ for($i=5;$i< $y;) {
 		}
 	} else {
 		mysql_query("insert into ".$prefix."_ele_log values('$id_cons','$id_sez','$username','$log_data','".$log_ora['hours'].":".$log_ora['minutes'].":".$log_ora['seconds']."','','num_gruppo:$num_gruppo $riga','$tab')", $dbi);
-		mysql_query("insert into ".$prefix."$tab values ('$id_cons', '$id_gruppo','$id_sez',$voti)", $dbi);
+		mysql_query("insert into ".$prefix."$tab values ('$id_cons', '$id_gruppo','$id_sez',$voti,0)", $dbi);
 		if ($fileout) fwrite($fp,"insert into ".$prefix."$tab values ('$id_cons', '$id_gruppo','$id_sez',$voti);\n");
 	//
 	}
